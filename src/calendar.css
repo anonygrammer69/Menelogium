@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+ 
+.event-items {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+}

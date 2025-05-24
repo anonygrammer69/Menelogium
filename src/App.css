@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+#root {
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#root ::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 145%;
+  z-index: -1;
+  background: linear-gradient(rgb(229, 229, 202), rgb(199, 124, 50));
+  background-size: cover;
+  overflow: hidden;
+}
+
+.logo {
+  height: 6em;
+  margin-left: 430px;
+  margin-top: -30px;
+  margin-bottom: -10px;
+  font-size: 34px;
+  padding: 1.5em;
+  transition: filter 300ms;
+  position: relative;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1em rgb(155, 92, 50));
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
