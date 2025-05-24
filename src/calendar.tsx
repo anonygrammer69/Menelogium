@@ -82,6 +82,8 @@ const Calendar: React.FC = () => {
       };
 
       console.log("Sending webhook notification:", webhookPayload);
+      console.log("Event date format:", eventData.date);
+      console.log("User email:", auth.currentUser?.email);
 
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
