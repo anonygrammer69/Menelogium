@@ -23,6 +23,7 @@ const Calendar: React.FC = () => {
   const [showDialog, setShowDialog] = useState(false);
   const [dialogDate, setDialogDate] = useState<Date | null>(null);
   const [eventTitle, setEventTitle] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentMonth(new Date(parseInt(e.target.value), currentMonth.getMonth(), 1));
@@ -60,35 +61,69 @@ const Calendar: React.FC = () => {
     };
   }, [showDialog]);
 
+  const sendEventNotification = async (eventData: { eventTitle: string; userEmail: string; eventDate: string }) => {
+    try {
+      const webhookUrl = "https://pumped-sincerely-coyote.ngrok-free.app/webhook/send-reminder";
+      
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "true" // Add this header for ngrok
+        },
+        body: JSON.stringify(eventData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log("Event notification sent successfully");
+      return true;
+    } catch (error) {
+      console.error("Failed to send event notification:", error);
+      // You might want to show a user notification here
+      return false;
+    }
+  };
+
   const handleAddEvent = async () => {
     if (!eventTitle.trim() || !dialogDate || !auth.currentUser) return;
 
-    const normalizedDate = new Date(dialogDate.getFullYear(), dialogDate.getMonth(), dialogDate.getDate());
-    const formattedDate = format(normalizedDate, "dd-MM-yyyy");
-    const newEvent = {
-      date: formattedDate,
-      title: eventTitle.trim(),
-      uid: auth.currentUser.uid,
-    };
+    setIsSubmitting(true);
 
-    const docRef = await addDoc(collection(db, "events"), newEvent);
-    setEvents(prev => [...prev, { ...newEvent, id: docRef.id }]);
-    setShowDialog(false);
-    setEventTitle("");
-    setDialogDate(null);
+    try {
+      const normalizedDate = new Date(dialogDate.getFullYear(), dialogDate.getMonth(), dialogDate.getDate());
+      const formattedDate = format(normalizedDate, "dd-MM-yyyy");
+      const newEvent = {
+        date: formattedDate,
+        title: eventTitle.trim(),
+        uid: auth.currentUser.uid,
+      };
 
-    // ✅ Send to n8n webhook
-    const webhookUrl = "https://pumped-sincerely-coyote.ngrok-free.app/webhook/send-reminder";
-    const eventData = {
-      eventTitle: newEvent.title,
-      userEmail: auth.currentUser.email,
-    };
+      // Save to Firebase
+      const docRef = await addDoc(collection(db, "events"), newEvent);
+      setEvents(prev => [...prev, { ...newEvent, id: docRef.id }]);
 
-    await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(eventData),
-    });
+      // Send notification via webhook
+      const eventData = {
+        eventTitle: newEvent.title,
+        userEmail: auth.currentUser.email || "",
+        eventDate: formattedDate
+      };
+
+      await sendEventNotification(eventData);
+
+      // Reset form
+      setShowDialog(false);
+      setEventTitle("");
+      setDialogDate(null);
+    } catch (error) {
+      console.error("Error adding event:", error);
+      // You might want to show an error message to the user here
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDeleteEvent = async (eventToDelete: Event) => {
@@ -159,10 +194,23 @@ const Calendar: React.FC = () => {
           value={eventTitle}
           onChange={(e) => setEventTitle(e.target.value)}
           autoFocus
+          disabled={isSubmitting}
         />
         <div className="flex gap-2 justify-end">
-          <button className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500" onClick={() => { setShowDialog(false); setEventTitle(""); setDialogDate(null); }}>Cancel</button>
-          <button className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700" onClick={handleAddEvent}>Add</button>
+          <button 
+            className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500 disabled:opacity-50" 
+            onClick={() => { setShowDialog(false); setEventTitle(""); setDialogDate(null); }}
+            disabled={isSubmitting}
+          >
+            Cancel
+          </button>
+          <button 
+            className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50" 
+            onClick={handleAddEvent}
+            disabled={isSubmitting || !eventTitle.trim()}
+          >
+            {isSubmitting ? "Adding..." : "Add"}
+          </button>
         </div>
       </div>
     </div>
