@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 120%;
+  width: 110%;
   height: 400%;
   z-index: -1;
   background: linear-gradient(rgb(229, 229, 202), rgb(199, 124, 50));
