@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <button
-        className="absolute top-8 right-16 bg-red-500 text-white hover:bg-red-700 hover:cursor-pointer px-4 py-2 rounded"
+        className="absolute top-8 right-4 lg:right-16 bg-red-500 text-white hover:bg-red-700 hover:cursor-pointer px-4 py-2 rounded"
         onClick={() => signOut(auth)}
       >
         Logout
