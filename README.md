@@ -24,7 +24,7 @@ A minimal, AI-powered (soon™) calendar that automates your reminders and keeps
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React+Vite
+- **Frontend**: React+Typescript+Vite
 - **Backend**: n8n (workflow automation)  
 - **Database**: Firebase Firestore  
 - **Email Automation**: n8n + SMTP
