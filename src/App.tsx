@@ -22,12 +22,12 @@ function App() {
   return (
     <>
       <button
-        className="absolute top-8 right-4 sm:right-2 sm:ml-5 md:right-16 bg-red-500 text-white hover:bg-red-700 hover:cursor-pointer px-4 py-2 rounded"
+        className="absolute top-8 right-4 sm:right-2 md:right-16 bg-red-500 text-white hover:bg-red-700 hover:cursor-pointer px-4 py-2 rounded"
         onClick={() => signOut(auth)}
       >
         Logout
       </button>
-      <h1 className="flex text-base justify-center mt-10 sm:mt-10 md:mt-10 md:left-10 underline font-semibold md:font-semibold text-gray-800">Welcome to your Calendar</h1>
+      <h1 className="flex text-base justify-center mt-10 sm:mt-10 md:mt-10 md:ml-10 underline font-semibold md:font-semibold text-gray-800">Welcome to your Calendar</h1>
       <div>
         <a>
           <img src={CALENDAR} className="flex h-20 justify-center ml-70 sm:ml-75 md:ml-125 my-6"/>
