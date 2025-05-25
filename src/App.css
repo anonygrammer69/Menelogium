@@ -15,7 +15,8 @@
   height: 250%;
   z-index: -1;
   background: linear-gradient(rgb(229, 229, 202), rgb(199, 124, 50));
-  background-size: fill;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 @media (min-width: 768px) {
