@@ -313,7 +313,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <>
       {dialogBox}
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col sm:flex-col md:flex-row">
         <div className="table">
           {renderHeader()}
           {renderDays()}
