@@ -11,13 +11,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 140%;
-  height: 250%;
+  width: 120%;
+  height: 300%;
   z-index: -1;
   background: linear-gradient(rgb(229, 229, 202), rgb(199, 124, 50));
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   overflow: hidden;
 }
 @media (min-width: 768px) {
