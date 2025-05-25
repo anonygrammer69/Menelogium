@@ -27,10 +27,10 @@ function App() {
       >
         Logout
       </button>
-      <h1 className="flex text-base left-5 justify-center mt-10 sm:mt-10 md:mt-10 md:ml-10 underline font-semibold md:font-semibold text-gray-800">Welcome to your Calendar</h1>
+      <h1 className="flex text-base justify-center mt-10 sm:mt-10 md:mt-10 md:ml-10 underline font-semibold md:font-semibold text-gray-800">Welcome to your Calendar</h1>
       <div>
         <a>
-          <img src={CALENDAR} className="flex h-20 justify-center sm:ml-75 md:ml-125 my-6"/>
+          <img src={CALENDAR} className="flex h-20 justify-center mr-75 sm:ml-75 md:ml-125 my-6"/>
         </a>
       </div>
       <div>
