@@ -30,7 +30,7 @@ function App() {
       <h1 className="flex justify-center text-sm lg:mt-6 lg:ml-20 lg:text-lg underline font-semibold text-gray-800">Welcome to your Calendar</h1>
       <div>
         <a>
-          <img src={CALENDAR} className="flex flex-row h-20 justify-center ml-5 hover:shadow-xl hover:shadow-amber-500 transition duration-300 ease-in-out"/>
+          <img src={CALENDAR} className="flex flex-row h-20 justify-center ml-24 hover:shadow-2xl hover:shadow-amber-500 transition duration-300 ease-in-out"/>
         </a>
       </div>
       <div>
