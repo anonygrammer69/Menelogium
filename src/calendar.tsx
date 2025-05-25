@@ -212,7 +212,7 @@ const Calendar: React.FC = () => {
         );
         day = addDays(day, 1);
       }
-      days.push(<div className="flex flex-row md: flex-column p-5 justify-evenly bg-yellow-600
+      days.push(<div className="flex flex-auto md: flex-row p-5 justify-evenly bg-yellow-600
          text-black border-3 rounded-lg border-black w-full h-full relative" key={day.toString()}>{week}</div>);
     }
     return <div className="calendar">{days}</div>;
