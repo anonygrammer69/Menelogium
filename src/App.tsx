@@ -30,7 +30,7 @@ function App() {
       <h1 className="flex text-base justify-center mt-10 sm:mt-10 md:mt-10 md:ml-10 underline font-semibold md:font-semibold text-gray-800">Welcome to your Calendar</h1>
       <div>
         <a>
-          <img src={CALENDAR} className="flex h-20 justify-center ml-90 sm:ml-75 md:ml-125 my-6"/>
+          <img src={CALENDAR} className="flex h-20 justify-center mr-90 sm:ml-75 md:ml-125 my-6"/>
         </a>
       </div>
       <div>
