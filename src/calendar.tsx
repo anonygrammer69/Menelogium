@@ -145,7 +145,7 @@ const Calendar: React.FC = () => {
   };
 
   const renderHeader = () => (
-    <div className="flex-row border-2 bg-gradient-to-bl border-black text-black text-lg font-semibold">
+    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-400 border-black text-black text-lg font-semibold">
       <button 
       className="hover:cursor-pointer" 
       onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
