@@ -313,15 +313,15 @@ const renderSelectedMonthEvents = () => {
   return (
     <>
       {dialogBox}
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row md:left-4">
         <div className="table">
           {renderHeader()}
           {renderDays()}
         </div>
-        <div className="flex flex-col mb-5 text-center ml-20 text-black">
+        <div className="flex flex-col text-center ml-20 text-black">
           <h2 className="text-2xl text-black font-sans underline">Events for this month</h2>
           {renderSelectedMonthEvents()}
-           <h2 className="text-xl mt-4 mb-5 underline text-black font-sans">
+           <h2 className="text-xl mt-4 mb-2 underline text-black font-sans">
             Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
            </h2>
           {renderSelectedDateEvents()}
