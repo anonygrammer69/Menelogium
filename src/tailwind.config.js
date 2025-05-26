@@ -6,7 +6,7 @@ module.exports = {
   theme: { 
     extend: {
       fontfamily: {
-        sans: ["Oxygen", "sans-serif"]
+        garamond: ["garamond", "serif"]
       },
       colors: {
         'beige': {
