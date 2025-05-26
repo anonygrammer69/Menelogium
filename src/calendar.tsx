@@ -200,7 +200,7 @@ const Calendar: React.FC = () => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-lg w-20 h-16 font-sans select-none
+          className={`flex items-center justify-center rounded-lg w-30 h-22 font-sans select-none
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
@@ -216,9 +216,9 @@ const Calendar: React.FC = () => {
     }
     return (
       <div>
-        <div className="grid grid-cols-7 w-50 h-35 text-black text-lg mb-2">
+        <div className="grid grid-cols-7 border-2 border-black text-black text-lg mb-2">
           {weekdays.map((day) => (
-            <div key={day} className="text-center font-semibold py-2">{day}</div>
+            <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
           </div>
           <div className="grid grid-cols-7 gap-px bg-gradient-b from-white to-sky-400 rounded-sm">
