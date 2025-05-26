@@ -3,6 +3,12 @@ module.exports = {
     "./index.html",
     "./src/**/*.{html,js,ts,jsx,tsx}", './public/index.html'
   ],
-  theme: { extend: {} },
+  theme: { 
+    extend: {
+      fontfamily: {
+        sans: ["Oxygen", "sans-serif"]
+      },
+    },
+  },
   plugins: [],
 } 
