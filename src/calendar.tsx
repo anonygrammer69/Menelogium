@@ -260,7 +260,7 @@ const dialogBox = showDialog && (
   return (
     <ul>
       {selectedDateEvents.map((e, i) => (
-        <li key={i} className="justify-center font-sans text-black text-md">
+        <li key={i} className="justify-center font-sans text-black text-lg">
           {formattedDate}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -297,7 +297,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="justify-center font-sans text-black text-md">
+        <li key={e.id || i} className="justify-center font-sans text-black text-lg">
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
