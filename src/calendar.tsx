@@ -297,7 +297,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="event-items">
+        <li key={e.id || i} className="justify-center font-sans text-black text-md">
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -318,10 +318,10 @@ const renderSelectedMonthEvents = () => {
           {renderHeader()}
           {renderDays()}
         </div>
-        <div className="flex flex-col text-center ml-20 text-black font-medium">
+        <div className="flex flex-col text-center text-2xl ml-20 text-black font-sans">
           <h2 className="text-2xl text-black font-bold underline">Events for this month</h2>
           {renderSelectedMonthEvents()}
-           <h2 className="text-xl mt-4 underline text-black font-bold">
+           <h2 className="text-xl mt-4 underline text-black font-sans">
             Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
            </h2>
           {renderSelectedDateEvents()}
