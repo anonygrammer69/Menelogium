@@ -202,7 +202,7 @@ const Calendar: React.FC = () => {
         week.push(
           <div
             key={currentDay.toString()}
-            className={`flex p-4 justify-evenly border-2 border-black rounded-sm w-20 h-16 font-sans hover:shadow-xl hover:shadow-amber-700  hover:bg-amber-400  transition duration-200${!isSameMonth(day, currentMonth) ? "text-gray-400" : ""} ${
+            className={`flex p-4 justify-evenly border-2 border-black rounded-sm w-20 h-16 font-sans hover:shadow-xl hover:shadow-gray-700  hover:bg-gray-400  transition duration-200${!isSameMonth(day, currentMonth) ? "text-gray-400" : ""} ${
               isSameDay(currentDay, new Date()) ? "font-sans bg-red-500 hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-200" : ""
             }`}
             onClick={() => handleDateClick(currentDay)}
@@ -212,7 +212,7 @@ const Calendar: React.FC = () => {
         );
         day = addDays(day, 1);
       }
-      days.push(<div className="flex lg:flex-auto shadow-2xl flex-auto p-5 justify-evenly bg-white hover:bg-gray-300 transition duration-300
+      days.push(<div className="flex lg:flex-auto shadow-2xl flex-auto p-5 justify-evenly bg-gray-600 hover:bg-gray-300 transition duration-300
          text-black border-3 rounded-lg border-black md:w-170 md:h-full w-full h-full relative md:relative" key={day.toString()}>{week}</div>);
     }
     return <div className="calendar">{days}</div>;
