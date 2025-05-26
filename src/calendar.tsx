@@ -216,7 +216,7 @@ const Calendar: React.FC = () => {
     }
     return (
       <div>
-        <div className="grid grid-cols-7 border-2 border-black text-black text-lg mb-2">
+        <div className="grid grid-cols-7 border-2 border-black text-black bg-slate-300 text-lg mb-2">
           {weekdays.map((day) => (
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
