@@ -200,11 +200,11 @@ const Calendar: React.FC = () => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-lg w-26 h-24 font-sans select-none
+          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
-              : "bg-slate-300 text-black hover:shadow-xl hover:shadow-gray-600 hover:bg-white transition duration-300"
+              : "bg-slate-400 text-black hover:shadow-xl hover:shadow-gray-600 hover:bg-white transition duration-300"
             }
           `}
           onClick={() => handleDateClick(currentDay)}
@@ -221,7 +221,7 @@ const Calendar: React.FC = () => {
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
           </div>
-          <div className="grid grid-cols-7 gap-px bg-gradient-b from-white to-sky-400 rounded-sm">
+          <div className="grid grid-cols-7 gap-px">
           {dayCells}
         </div>
       </div>
