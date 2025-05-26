@@ -204,7 +204,7 @@ const Calendar: React.FC = () => {
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
-              : "bg-gradient-to-b from-white to-sky-400 text-black hover:shadow-xl hover:shadow-gray-600 hover:bg-white transition duration-300"
+              : "bg-purple-300 text-black hover:shadow-xl hover:shadow-gray-600 hover:bg-white transition duration-300"
             }
           `}
           onClick={() => handleDateClick(currentDay)}
