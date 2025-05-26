@@ -194,29 +194,39 @@ const Calendar: React.FC = () => {
     const startDate = startOfWeek(startOfMonth(currentMonth));
     const endDate = endOfWeek(endOfMonth(currentMonth));
     let day = startDate;
-
+    const dayCells = [];
     while (day <= endDate) {
-      const week = [];
-      for (let i = 0; i < 7; i++) {
-        const currentDay = day;
-        week.push(
-          <div
-            key={currentDay.toString()}
-            className={`flex p-4 justify-evenly border-2 border-black rounded-sm w-20 h-16 font-sans${!isSameMonth(day, currentMonth) ? "text-gray-400" : ""} ${
-              isSameDay(currentDay, new Date()) ? "bg-red-500 hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300 font-sans"
-              : "bg-slate-300 hover:shadow-xl hover:shadow-gray-600  hover:bg-white  transition duration-200"
-            }`}
-            onClick={() => handleDateClick(currentDay)}
-          >
-            <div>{format(currentDay, "dd")}</div>
-          </div>
-        );
-        day = addDays(day, 1);
-      }
-      days.push(<div className="flex shadow-2xl flex-auto p-4 justify-evenly bg-gradient-to-b from-white to-gray-400 transition duration-300
-         text-black rounded-xl md:w-170 md:h-full w-full h-full relative md:relative" key={day.toString()}>{week}</div>);
+      const currentDay = day;
+      dayCells.push(
+        <div
+          key={currentDay.toString()}
+          className={`flex items-center justify-center w-20 h-16 font-sans select-none
+            ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
+            ${isSameDay(currentDay, new Date())
+              ? "bg-red-500 text-white"
+              : "bg-slate-300 text-black"
+            }
+            hover:shadow-xl hover:shadow-gray-600 hover:bg-white transition duration-200
+          `}
+          onClick={() => handleDateClick(currentDay)}
+        >
+          {format(currentDay, "dd")}
+        </div>
+      );
+      day = addDays(day, 1);
     }
-    return <div className="calendar">{days}</div>;
+    return (
+      <div>
+        <div className="grid grid-cols-7 text-black text-lg mb-2">
+          {weekdays.map((day) => (
+            <div key={day} className="text-center font-semibold py-2">{day}</div>
+          ))}
+          </div>
+          <div className="grid grid-cols-7 gap-px bg-slate-300 rounded-xl">
+          {dayCells}
+        </div>
+      </div>
+    );
   };
 const dialogBox = showDialog && (
   <div className="fixed inset-0 flex backdrop-blur-sm items-center justify-center z-50">
