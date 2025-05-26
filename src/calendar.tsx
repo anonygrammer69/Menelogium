@@ -200,7 +200,7 @@ const Calendar: React.FC = () => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none
+          className={`flex items-center justify-center rounded-sm w-26 h-24 font-garamond select-none
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
@@ -270,7 +270,7 @@ const dialogBox = showDialog && (
   return (
     <ul>
       {selectedDateEvents.map((e, i) => (
-        <li key={i} className="justify-center font-sans text-black text-lg">
+        <li key={i} className="justify-center font-garamond text-black text-lg">
           {formattedDate}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -307,7 +307,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="justify-center font-sans text-black text-lg">
+        <li key={e.id || i} className="justify-center font-garamond text-black text-lg">
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -329,9 +329,9 @@ const renderSelectedMonthEvents = () => {
           {renderDays()}
         </div>
         <div className="flex flex-col text-center sm:mt-10 md:mt-0 ml-20 text-black">
-          <h2 className="text-2xl text-black font-sans underline">Events for this month</h2>
+          <h2 className="text-2xl text-black font-garamong underline">Events for this month</h2>
           {renderSelectedMonthEvents()}
-           <h2 className="text-xl mt-4 mb-2 underline text-black font-sans">
+           <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
             Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
            </h2>
           {renderSelectedDateEvents()}
