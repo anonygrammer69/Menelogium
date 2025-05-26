@@ -212,8 +212,8 @@ const Calendar: React.FC = () => {
         );
         day = addDays(day, 1);
       }
-      days.push(<div className="flex lg:flex-auto flex-auto p-5 justify-evenly bg-yellow-600
-         text-black border-3 rounded-lg border-black lg:w-170 lg:h-full w-full h-full relative lg:relative" key={day.toString()}>{week}</div>);
+      days.push(<div className="flex lg:flex-auto shadow-lg flex-auto p-5 justify-evenly bg-yellow-600
+         text-black border-3 rounded-lg border-black md:w-170 md:h-full w-full h-full relative md:relative" key={day.toString()}>{week}</div>);
     }
     return <div className="calendar">{days}</div>;
   };
@@ -260,7 +260,7 @@ const dialogBox = showDialog && (
   return (
     <ul>
       {selectedDateEvents.map((e, i) => (
-        <li key={i} className="justify-center font-sans text-black text-sm">
+        <li key={i} className="justify-center font-sans text-black text-14px">
           {formattedDate}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -297,7 +297,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="justify-center font-sans text-black text-sm">
+        <li key={e.id || i} className="justify-center font-sans text-black text-14px">
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
