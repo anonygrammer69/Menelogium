@@ -202,8 +202,8 @@ const Calendar: React.FC = () => {
         week.push(
           <div
             key={currentDay.toString()}
-            className={`flex p-4 justify-evenly bg-amber-100 border-2 border-black rounded-sm w-20 h-16 hover:shadow-xl hover:shadow-amber-700  hover:bg-amber-400  transition duration-200${!isSameMonth(day, currentMonth) ? "text-gray-400" : ""} ${
-              isSameDay(currentDay, new Date()) ? "bg-red-500 hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-200" : ""
+            className={`flex p-4 justify-evenly bg-amber-100 border-2 border-black rounded-sm w-20 h-16 font-sans hover:shadow-xl hover:shadow-amber-700  hover:bg-amber-400  transition duration-200${!isSameMonth(day, currentMonth) ? "text-gray-400" : ""} ${
+              isSameDay(currentDay, new Date()) ? "font-sans bg-red-500 hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-200" : ""
             }`}
             onClick={() => handleDateClick(currentDay)}
           >
