@@ -145,7 +145,7 @@ const Calendar: React.FC = () => {
   };
 
   const renderHeader = () => (
-    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-300 border-black rounded-md text-black text-lg font-semibold">
+    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-300 border-black rounded-lg text-black text-lg font-semibold">
       <button 
       className="hover:cursor-pointer" 
       onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
@@ -216,7 +216,7 @@ const Calendar: React.FC = () => {
     }
     return (
       <div>
-        <div className="grid grid-cols-7 border-2 border-black rounded-md text-black bg-slate-300 text-lg mb-2">
+        <div className="grid grid-cols-7 border-2 border-black rounded-lg text-black bg-slate-300 text-lg mb-2">
           {weekdays.map((day) => (
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
