@@ -325,21 +325,21 @@ return (
     <>
       {dialogBox}
       <button 
-        className="top-4 left-4 z-60 fixed bg-blue-600 hover:bg-blue-700 transition px-4 py-4 rounded-full w-14 h-10 text-white"
+        className="top-4 left-4 z-50 fixed bg-blue-600 hover:bg-blue-700 transition rounded-full w-14 h-10 text-white"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? "Hide Menu" : "Show Menu"}
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
-          <div className="w-48 min-h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg mr-6 p-4 gap-4 flex flex-col">
+          <div className="fixed top-0 left-0 z-40 w-64 h-full bg-gradient-to-b from-white to-slate-400 border-r-2 border-black rounded-r-lg p-4 gap-4 flex flex-col shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Menu</h2>
             <button
-            className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
-            onClick={() => {
-              setDialogDate(new Date());
-              setShowDialog(true);
-            }}
+              className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
+              onClick={() => {
+                setDialogDate(new Date());
+                setShowDialog(true);
+              }}
             >
               Add an event for today
             </button>
@@ -348,6 +348,12 @@ return (
               onClick={() => setCurrentMonth(new Date())}
             >
               Go to Today
+            </button>
+            <button
+              className="py-2 px-4 rounded bg-gray-400 text-white hover:bg-gray-500 transition hover:cursor-pointer mt-auto"
+              onClick={() => setShowSidebar(false)}
+            >
+              Close Menu
             </button>
           </div>
         )}
