@@ -332,20 +332,20 @@ return (
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
-          <div 
+          <div
             className={`
-              fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
-              transition-transform duration-500 ease-in-out
-              ${showSidebar ? "translate-x-0" : "-translate-x-full"}
-            `}
+            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
+            transition-transform duration-500 ease-in-out
+            ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+           `}
             style={{ willChange: "transform" }}
           >
             <h2 className="text-xl font-semibold mt-4 mb-4">Menu</h2>
-            <button
+           <button
               className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
               onClick={() => {
-                setDialogDate(new Date());
-                setShowDialog(true);
+               setDialogDate(new Date());
+               setShowDialog(true);
               }}
             >
               Add an event for today
@@ -353,8 +353,8 @@ return (
             <button
               className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 transition hover:cursor-pointer"
               onClick={() => setCurrentMonth(new Date())}
-            >
-              Go to Today
+           >
+             Go to Today
             </button>
             <button
               className="py-2 px-4 rounded bg-gray-400 text-white hover:bg-gray-500 transition hover:cursor-pointer mt-auto"
