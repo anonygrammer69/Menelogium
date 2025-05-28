@@ -200,7 +200,7 @@ const Calendar: React.FC = () => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-sm w-26 h-24 font-garamond select-none
+          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
