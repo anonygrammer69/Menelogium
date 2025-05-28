@@ -324,16 +324,16 @@ return (
     <>
       {dialogBox}
       <div className="flex flex-col md:flex-row">
-        <div className="w-48 min-h-full bg-slate-300 border-r-2 border-2 border-black rounded-lg mr-5 p-4 flex flex-col gap-4">
-          <h2 className="text-xl font-bold mb-4">Menu</h2>
+        <div className="w-48 min-h-full bg-slate-300 border-2 border-black rounded-lg justify-start p-4 flex flex-col">
+          <h2 className="text-xl font-garamond mb-4">Menu</h2>
           <button
-          className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition"
+          className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
           onClick={() => setShowDialog(true)}
           >
             Add Event
           </button>
           <button
-            className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 transition"
+            className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 transition hover:cursor-pointer"
             onClick={() => setCurrentMonth(new Date())}
           >
             Go to Today
