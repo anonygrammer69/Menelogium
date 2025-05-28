@@ -12,7 +12,3 @@
     flex-direction: row;
     font-size: 18px;
 }
-
-.sidebar-transition {
-    transition: opacity 0.6s ease;
-}
