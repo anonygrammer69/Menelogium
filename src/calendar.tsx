@@ -325,7 +325,7 @@ return (
     <>
       {dialogBox}
       <button 
-        className="fixed top-4 left-4 z-40 bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-16 h-12 text-white"
+        className="relative top-4 left-4 z-40 bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-16 h-12 text-white"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? "Hide Menu" : "Show Menu"}
@@ -334,8 +334,8 @@ return (
         {showSidebar && (
           <div 
             className={`
-              fixed top-0 left-0 z-40 w-64 h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
-              transition-transform duration-300 ease-in-out
+              fixed top-0 left-0 z-50 w-64 h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
+              transition-all duration-300 ease-in-out
               ${showSidebar ? "transition-x-0" : "-transition-x-full"}
             `}
             style={{ willChange: "transform" }}
