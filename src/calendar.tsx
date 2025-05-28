@@ -328,7 +328,7 @@ return (
           <h2 className="text-xl font-semibold mb-4">Menu</h2>
           <button
           className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
-          onClick={handleAddEvent}
+          onClick={() => setShowDialog(true)}
           >
             Add Event
           </button>
