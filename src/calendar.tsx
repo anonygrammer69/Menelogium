@@ -329,11 +329,11 @@ const renderSelectedMonthEvents = () => {
           {renderDays()}
         </div>
         <div className="flex flex-col text-center sm:mt-10 md:mt-0 ml-20 text-black">
-          <h2 className="text-2xl text-black font-garamong underline">Events for this month</h2>
+          <h2 className="text-2xl text-black font-garamond underline">Events for this month</h2>
           {renderSelectedMonthEvents()}
-           <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
+          <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
             Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
-           </h2>
+          </h2>
           {renderSelectedDateEvents()}
         </div>
       </div>
