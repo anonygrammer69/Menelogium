@@ -27,6 +27,7 @@ const Calendar: React.FC = () => {
   const [showDialog, setShowDialog] = useState(false);
   const [dialogDate, setDialogDate] = useState<Date | null>(null);
   const [eventTitle, setEventTitle] = useState("");
+  const[showSidebar, setShowSidebar] = useState(false);
 
   const handleYearChange = (year: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentMonth(new Date(parseInt(year.target.value), currentMonth.getMonth(), 1));
@@ -323,6 +324,12 @@ const renderSelectedMonthEvents = () => {
 return (
     <>
       {dialogBox}
+      <button 
+        className="top-4 left-4 z-50 relative bg-red-600 hover:bg-red-700 transition rounded-lg w-14 h-10 text-white"
+        onClick={() => setShowSidebar((prev) => !prev)}
+      >
+        {showSidebar ? "Hide Menu" : "Show Menu"}
+      </button>
       <div className="flex flex-col md:flex-row">
         <div className="w-48 min-h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg mr-6 p-4 gap-4 flex flex-col">
           <h2 className="text-xl font-semibold mb-4">Menu</h2>
