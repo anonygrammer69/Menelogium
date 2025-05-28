@@ -325,7 +325,7 @@ return (
     <>
       {dialogBox}
       <button 
-        className="top-4 left-4 z-40 bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-14 h-14 text-white"
+        className="absolute top-4 left-4 z-40 bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-14 h-14 text-white"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? "Hide Menu" : "Show Menu"}
