@@ -16,7 +16,6 @@
 .toggle-button {
     display: flex;
     flex-direction: row;
-    justify-content: left;
-    margin-top: 4px;
-    margin-left: 4px;
+    justify-content: space-evenly;
+    align-items: baseline;
 }
