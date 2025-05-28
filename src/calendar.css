@@ -12,3 +12,11 @@
     flex-direction: row;
     font-size: 18px;
 }
+
+.toggle-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    top: 4px;
+    left: 4px;
+}
