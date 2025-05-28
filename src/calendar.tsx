@@ -320,25 +320,41 @@ const renderSelectedMonthEvents = () => {
     </ul>
   )
   };
-  return (
+return (
     <>
       {dialogBox}
       <div className="flex flex-col md:flex-row">
-        <div className="table">
-          {renderHeader()}
-          {renderDays()}
+        <div className="w-48 min-h-full bg-slate-100 border-r-2 border-slate-300 p-4 flex flex-col gap-4">
+          <h2 className="text-xl font-bold mb-4">Menu</h2>
+          <button
+          className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition"
+          onClick={() => setShowDialog(true)}
+          >
+            Add Event
+          </button>
+          <button
+            className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 transition"
+            onClick={() => setCurrentMonth(new Date())}
+          >
+            Go to Today
+          </button>
         </div>
-        <div className="flex flex-col text-center sm:mt-10 md:mt-0 ml-20 text-black">
-          <h2 className="text-2xl text-black font-garamond underline">Events for this month</h2>
-          {renderSelectedMonthEvents()}
-          <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
-            Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
-          </h2>
-          {renderSelectedDateEvents()}
+        <div className="flex flex-col md:flex-row">
+          <div className="table">
+            {renderHeader()}
+            {renderDays()}
+          </div>
+          <div className="flex flex-col text-center sm:mt-10 md:mt-0 ml-20 text-black">
+            <h2 className="text-2xl text-black font-garamond underline">Events for this month</h2>
+            {renderSelectedMonthEvents()}
+            <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
+              Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
+            </h2>
+            {renderSelectedDateEvents()}
+          </div>
         </div>
       </div>
     </>
   );
 };
-
 export default Calendar;
