@@ -325,14 +325,14 @@ return (
     <>
       {dialogBox}
       <button 
-        className="top-4 left-4 z-50 fixed bg-blue-600 hover:bg-blue-700 transition rounded-full w-20 h-14 text-white"
+        className="top-4 left-4 z-50 fixed bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-14 h-14 text-white"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? "Hide Menu" : "Show Menu"}
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
-          <div className="fixed top-0 left-0 z-40 w-64 h-full bg-gradient-to-b from-white to-slate-400 border-r-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg">
+          <div className="fixed top-0 left-4 z-40 w-64 h-full bg-gradient-to-b from-white to-slate-400 border-r-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg">
             <h2 className="text-xl font-semibold mt-4 mb-4">Menu</h2>
             <button
               className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
