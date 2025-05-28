@@ -20,6 +20,14 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 - ⏰ **Reminder Emails**  
   Scheduled and dispatched through **n8n** before your events start.
 
+## ✨ Alpha-0.1.2 - What's new
+
+- ✨ **UI Revamp** ✨
+  A brand new, more modern and clean look has been implemented for the calendar grid for a better User Experience and visual aesthetics.
+  A whole new background theme has also been laid down, enhancing the overall appearence of the app.
+
+- 🔃 **New features**
+  We're constantly working for rolling out new features that would significantly elevate user experience, and even, the integration of AI for more sophisticated features.
 ---
 
 ## 🛠️ Tech Stack
