@@ -11,13 +11,16 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 
 ## ✨ Alpha-0.1.1 – What Works
 
-- ✅ **Interactive Calendar**  
+- ✅ **Interactive Calendar**
+  
   Create, view, and manage your events with a clean and simple UI.
 
-- 📧 **Confirmation Emails**  
+- 📧 **Confirmation Emails**
+  
   Triggered automatically via **n8n** when new events are added.
 
-- ⏰ **Reminder Emails**  
+- ⏰ **Reminder Emails**
+    
   Scheduled and dispatched through **n8n** before your events start.
 
 ## ✨ Alpha-0.1.2 - What's new
