@@ -324,7 +324,7 @@ return (
     <>
       {dialogBox}
       <div className="flex flex-col md:flex-row">
-        <div className="w-48 min-h-full bg-slate-100 border-r-2 border-slate-300 p-4 flex flex-col gap-4">
+        <div className="w-48 min-h-full bg-slate-300 border-r-2 border-2 border-black rounded-lg mr-5 p-4 flex flex-col gap-4">
           <h2 className="text-xl font-bold mb-4">Menu</h2>
           <button
           className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition"
