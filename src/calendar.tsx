@@ -326,10 +326,10 @@ return (
     <>
       {dialogBox}
       <button 
-        className="z-40 text-white hover:cursor-pointer toggle-button"
+        className="z-40 text-white hover:cursor-pointer bg-gradient-to-b"
         onClick={() => setShowSidebar((prev) => !prev)}
         aria-label="Toggle Sidebar">
-          <img src={menuIcon} alt="Menu" className="relative w-8 h-8 ml-5 mt-5 hover:bg-gray-400"/>
+          <img src={menuIcon} alt="Menu" className="relative w-12 h-12 ml-5 mt-5 hover:bg-gray-400"/>
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
