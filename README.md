@@ -30,9 +30,9 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
   A brand new, more modern and clean look has been implemented for the calendar grid for a better User Experience and visual aesthetics.
   A whole new background theme has also been laid down, enhancing the overall appearence of the app.
 
-- 🔃 **New features**
+- 📃 **New Side-Bar Menu**
   
-  We're constantly working for rolling out new features that would significantly elevate user experience, and even, the integration of AI for more sophisticated features.
+  A new side-bar menu has also been added in this update, which augments layout organization, eases navigation through the calendar for the user, and provides a base for more new features!
   
 ---
 
@@ -43,7 +43,7 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 - **Database**: Firebase Firestore  
 - **Email Automation**: n8n + SMTP
 - **Scheduling**: n8n Cron Workflows  
-- **AI**: (Coming Soon) Natural Language Scheduling
+- **AI**: (Coming Soon) Natural Language Scheduling, Natural Language Processing
 
 ---
 
