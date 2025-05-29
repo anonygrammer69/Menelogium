@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { collection, addDoc, getDocs, query, where, deleteDoc, doc } from "firebase/firestore";
 import leftArrow from "./left-arrow.png";
 import rightArrow from "./right-arrow.png";
+import menuIcon from "./menu icon.png";
 
 type Event = {
   id? :string;
@@ -325,10 +326,10 @@ return (
     <>
       {dialogBox}
       <button 
-        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition border-2 border-black rounded-lg w-20 h-16 z-40 text-white toggle-button"
+        className="z-40 text-white hover:cursor-pointer toggle-button"
         onClick={() => setShowSidebar((prev) => !prev)}
-      >
-        {showSidebar ? "Hide Menu" : "Show Menu"}
+        aria-label="Toggle Sidebar">
+          <img src={menuIcon} alt="Menu" className="relative w-8 h-8 ml-5 mt-5 hover:bg-gray-400"/>
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
