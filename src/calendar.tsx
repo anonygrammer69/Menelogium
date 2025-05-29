@@ -329,7 +329,7 @@ return (
         className="z-40 text-white hover:cursor-pointer bg-gradient-to-b"
         onClick={() => setShowSidebar((prev) => !prev)}
         aria-label="Toggle Sidebar">
-          <img src={menuIcon} alt="Menu" className="relative w-12 h-12 ml-5 mt-5 hover:bg-gray-400"/>
+          <img src={menuIcon} alt="Menu" className="relative w-12 h-12 top-2 left-2 hover:bg-gray-400"/>
       </button>
       <div className="flex flex-col md:flex-row">
         {showSidebar && (
