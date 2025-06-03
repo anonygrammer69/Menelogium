@@ -69,7 +69,7 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
         className="bg-gray-300 text-black rounded p-2 hover:bg-gray-400 mt-2"
         onClick={handleGoogleSignIn}
       >
-        <img src={googleLogo} alt="Google" className="h-6 w-6 justify-center ml-2 mr-5 google-logo" /> Sign in with Google
+        <img src={googleLogo} alt="Google" className="h-6 w-6 justify-center ml-2 google-logo" /> Sign in with Google
       </button>
     </form>
   );
