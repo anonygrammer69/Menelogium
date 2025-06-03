@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth, googleProvider } from "./firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import googleLogo from "./google-logo.png";
 
 const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
       await signInWithPopup(auth, googleProvider);
       onAuth();
     } catch (err: any) {
-        setError(err.message || "Google sign-in failed");
+        setError("Google sign-in failed");
     }
   };
 
@@ -65,10 +66,11 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
       </button>
       <button
         type="button"
-        className="bg-gray-300 text-black rounded p-2 hover:bg-gray-500 mt-4"
+        className="bg-gray-300 text-black rounded p-2 hover:bg-gray-400 mt-4"
         onClick={handleGoogleSignIn}
       >
-        Sign in with Google
+        <img src={googleLogo} alt="Google" className="h-5 w-5 ml-4" />
+        Sign in with Google 
       </button>
     </form>
   );
