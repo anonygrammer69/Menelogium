@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { auth } from "./firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, googleProvider } from "./firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
   const [email, setEmail] = useState("");
@@ -20,6 +20,16 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
       onAuth();
     } catch (err: any) {
       setError(err.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError("");
+    try {
+      await signInWithPopup(auth, googleProvider);
+      onAuth();
+    } catch (err: any) {
+      setError("Google sign-in failed");
     }
   };
 
@@ -52,6 +62,13 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
         onClick={() => setIsLogin(!isLogin)}
       >
         {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
+      </button>
+      <button
+        type="button"
+        className="bg-gray-300 text-black rounded p-2 hover:bg-gray-500 mt-4"
+        onClick={handleGoogleSignIn}
+      >
+        Sign in with Google
       </button>
     </form>
   );
