@@ -67,7 +67,10 @@
 .google-logo {
   margin-bottom: -25px;
   margin-left: 10px;
-  margin-right: 10px;
+}
+
+.login {
+  margin-left: 12px;
 }
 
 .card {
