@@ -28,9 +28,9 @@ function App() {
         Logout
       </button>
       <h1 className="flex text-base justify-center ml-16 mt-10 md:ml-10 font-garamond text-gray-800">Welcome to your Calendar</h1>
-      <div>
+      <div className="relative">
         <a>
-          <img src={CALENDAR} className="relative h-20 justify-center sm:ml-85 lg:ml-128 my-6"/>
+          <img src={CALENDAR} className="absolute h-20 justify-center sm:ml-85 lg:ml-125 my-6"/>
         </a>
       </div>
       <div>
