@@ -29,7 +29,7 @@ const AuthForm: React.FC<{ onAuth: () => void }> = ({ onAuth }) => {
       await signInWithPopup(auth, googleProvider);
       onAuth();
     } catch (err: any) {
-      setError("Google sign-in failed");
+        setError(err.message || "Google sign-in failed");
     }
   };
 
