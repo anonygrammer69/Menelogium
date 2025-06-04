@@ -1,11 +1,11 @@
-# 🧠📅 Menologium
+# 🧠📅 Menelogium
 
-**Menologium** is your intelligent calendar companion.  
+**Menelogium** is your intelligent calendar companion.  
 A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling and keeps your time sacred.
 
 > _Currently in Alpha – Calendar is fully functional. Notifications run via n8n. AI scheduling coming soon._
 
-![Menologium Banner](https://iili.io/3bq4i9n.md.png)
+![Menelogium Banner](https://iili.io/3bq4i9n.md.png)
 
 ---
 
