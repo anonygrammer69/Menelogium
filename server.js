@@ -1,13 +1,14 @@
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import axios from "axios";
+import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Store your key in an environment variable
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 app.post("/api/gpt4", async (req, res) => {
   const { prompt } = req.body;
