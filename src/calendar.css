@@ -22,3 +22,10 @@
     margin-top: -200px;
     margin-bottom: 150px;
 }
+
+@media (min-width: 640px) {
+    .toggle-button {
+        display: flex;
+        flex-direction: column;
+    }
+}
