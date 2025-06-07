@@ -20,8 +20,8 @@
         flex-direction: column;
         justify-content: flex-start;
         margin-left: 0;
-        margin-top: -120px;
-        margin-bottom: 16px;
+        margin-top: -200px;
+        margin-bottom: 100px;
         z-index: 50;
     }
 }
