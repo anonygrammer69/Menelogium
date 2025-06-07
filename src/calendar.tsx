@@ -370,7 +370,7 @@ return (
             {renderHeader()}
             {renderDays()}
           </div>
-          <div className="flex flex-col text-center sm:mt-10 md:mt-0 md:ml-20 sm:mr-12 text-black">
+          <div className="flex flex-col text-center sm:mt-10 md:mt-0 md:ml-20 sm:mr-8 text-black">
             <h2 className="text-2xl text-black font-garamond underline">Events for this month</h2>
             {renderSelectedMonthEvents()}
             <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
