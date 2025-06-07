@@ -18,10 +18,11 @@
     .toggle-button {
         display: flex;
         flex-direction: column;
+        position: relative;
         justify-content: flex-start;
         margin-left: 0;
-        margin-top: -100px;
-        margin-bottom: 12px;
+        margin-top: 0;
+        margin-bottom: 24px;
     }
 }
 
