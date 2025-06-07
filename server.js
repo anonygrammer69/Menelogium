@@ -29,8 +29,8 @@ app.post("/api/gpt4", async (req, res) => {
     );
     res.json({ result: response.data.choices[0].message.content.trim() });
   } catch (err) {
-    res.status(500).json({ error: "OpenAI request failed" });
-  }
+  res.status(500).json({ error: err?.response?.data?.error?.message || err.message || "OpenAI request failed" });
+}
 });
 
 const PORT = process.env.PORT || 5000;
