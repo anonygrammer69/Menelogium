@@ -14,18 +14,23 @@
     font-size: 18px;
 }
 
-.toggle-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-left: -160px;
-    margin-top: -200px;
-    margin-bottom: 150px;
+@media (min-width: 764px) {
+    .toggle-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: -160px;
+        margin-top: -200px;
+        margin-bottom: 150px;
+    }
 }
 
 @media (min-width: 640px) {
     .toggle-button {
         display: flex;
         flex-direction: column;
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 12px;
     }
 }
