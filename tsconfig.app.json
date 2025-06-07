@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "src/tailwind.config.js", "src/postcss.config.js", "sendReminders.js"]
+  "include": ["src", "src/tailwind.config.js", "src/postcss.config.js", "sendReminders.js", "server.js"]
 }
