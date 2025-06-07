@@ -19,7 +19,7 @@ const GptChat: React.FC = () => {
   };
 
   return (
-    <div className="my-4">
+    <div className="my-4 bg-white">
       <input
         className="border p-2 rounded w-full"
         value={input}
@@ -27,7 +27,7 @@ const GptChat: React.FC = () => {
         placeholder="Ask GPT-4 anything..."
       />
       <button
-        className="mt-2 px-3 py-1 bg-blue-500 text-white rounded"
+        className="mt-2 px-3 py-1 bg-blue-500 text-black rounded"
         onClick={handleAsk}
         disabled={loading}
       >
