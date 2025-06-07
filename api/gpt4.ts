@@ -7,7 +7,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { prompt } = req.body;
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+  const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
   try {
     const response = await axios.post(
@@ -19,13 +19,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       {
         headers: {
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          Authorization: `Bearer ${GROQ_API_KEY}`,
           "Content-Type": "application/json",
         },
       }
     );
     res.status(200).json({ result: response.data.choices[0].message.content.trim() });
   } catch (err: any) {
-    res.status(500).json({ error: err?.response?.data?.error?.message || err.message || "OpenAI request failed" });
+    res.status(500).json({ error: err?.response?.data?.error?.message || err.message || "Groq request failed" });
   }
 }
