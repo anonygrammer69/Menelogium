@@ -6,7 +6,7 @@ module.exports = {
   theme: { 
     extend: {
       fontfamily: {
-        oxygen: ["Oxygen", "sans-serif"]
+        oxygen: ["Cormorant Garamond", "serif"]
       }
     },
   plugins: [],
