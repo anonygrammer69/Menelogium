@@ -19,7 +19,7 @@ const GptChat: React.FC = () => {
   };
 
   return (
-    <div className="my-4 bg-white">
+    <div className="my-4 bg-gray-300 rounded">
       <input
         className="border p-2 rounded w-full"
         value={input}
