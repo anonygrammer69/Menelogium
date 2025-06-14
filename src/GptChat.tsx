@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { askGpt4 } from "./openai";
+import { askGpt4 } from "./openai.ts";
 
 const GptChat: React.FC = () => {
   const [input, setInput] = useState("");
