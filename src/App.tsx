@@ -35,9 +35,13 @@ function App() {
         </a>
       </div>
       <div>
-        <Calendar />
-        <GptChat />
+        <p>
+          <Calendar />
+          <GptChat />
+        </p>
       </div>
+      <p className="read-the-docs">
+      </p>
     </>
   )
 }
