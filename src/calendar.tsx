@@ -272,7 +272,7 @@ const dialogBox = showDialog && (
       <input
         className="border p-2 rounded"
         type="text"
-        placeholder="Event title"
+        placeholder="Event Title"
         value={eventTitle}
         onChange={(e) => setEventTitle(e.target.value)}
         onKeyPress={(e) => {
