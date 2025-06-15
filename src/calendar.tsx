@@ -281,25 +281,22 @@ const dialogBox = showDialog && (
           }
         }}
         autoFocus
-        disabled={isLoading}
       />
       <div className="flex gap-2 justify-end">
         <button
-          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500 disabled:opacity-50"
+          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500"
           onClick={() => {
             setShowDialog(false); 
             setEventTitle(""); 
             setDialogDate(null);
             setError("");
           }}
-          disabled={isLoading}
         >
           Cancel
         </button>
         <button
-          className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700"
           onClick={handleAddEvent}
-          disabled={isLoading || !eventTitle.trim()}
         >
           {isLoading ? "Adding..." : "Add"}
         </button>
