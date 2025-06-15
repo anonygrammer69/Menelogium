@@ -29,6 +29,8 @@ const Calendar: React.FC = () => {
   const [dialogDate, setDialogDate] = useState<Date | null>(null);
   const [eventTitle, setEventTitle] = useState("");
   const[showSidebar, setShowSidebar] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>("");
 
   const handleYearChange = (year: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentMonth(new Date(parseInt(year.target.value), currentMonth.getMonth(), 1));
@@ -42,24 +44,30 @@ const Calendar: React.FC = () => {
     setDialogDate(day);
     setSelectedDate(day);
     setShowDialog(true);
+    setError(""); // Clear any previous errors
 };
 
   useEffect(() => {
     const fetchEvents = async () => {
       if (!auth.currentUser) return;
-      const q = query(
-        collection(db, "events"),
-        where("uid", "==", auth.currentUser.uid)
-      );
-      const querySnapshot = await getDocs(q);
-      const loadedEvents = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-        })) as Event[];
-      setEvents(loadedEvents);
+      try {
+        const q = query(
+          collection(db, "events"),
+          where("uid", "==", auth.currentUser.uid)
+        );
+        const querySnapshot = await getDocs(q);
+        const loadedEvents = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+          })) as Event[];
+        setEvents(loadedEvents);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setError("Failed to load events");
+      }
       };
     fetchEvents();
-  }, [showDialog]);
+  }, []);
 
   useEffect(() => {
     if (showDialog) {
@@ -84,8 +92,6 @@ const Calendar: React.FC = () => {
       };
 
       console.log("Sending webhook notification:", webhookPayload);
-      console.log("Event date format:", eventData.date);
-      console.log("User email:", auth.currentUser?.email);
 
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
@@ -106,43 +112,67 @@ const Calendar: React.FC = () => {
   };
 
   const handleAddEvent = async () => {
-  if (!eventTitle.trim() || !dialogDate || !auth.currentUser) return;
-  
-  const normalizedDate = new Date(dialogDate.getFullYear(), dialogDate.getMonth(), dialogDate.getDate());
-  const formattedDate = format(normalizedDate, "dd-MM-yyyy");
-  const newEvent = {
-    date: formattedDate,
-    title: eventTitle.trim(),
-    uid: auth.currentUser.uid,
-  };
-  
-  try {
-    // Add event to Firestore
-    const docRef = await addDoc(collection(db, "events"), newEvent);
-    const eventWithId = { ...newEvent, id: docRef.id };
+    if (!eventTitle.trim() || !dialogDate || !auth.currentUser) {
+      setError("Please enter an event title");
+      return;
+    }
     
-    // Update local state
-    setEvents(prev => [...prev, eventWithId]);
+    setIsLoading(true);
+    setError("");
     
-    // Send webhook notification
-    await sendWebhookNotification(eventWithId);
-    
-    // Close dialog and reset form
-    setShowDialog(false);
-    setEventTitle("");
-    setDialogDate(null);
-    
-    console.log("Event created and notification sent successfully");
-  } catch (error) {
-    console.error("Error creating event:", error);
-    // You might want to show an error message to the user here
-  }
+    try {
+      const normalizedDate = new Date(dialogDate.getFullYear(), dialogDate.getMonth(), dialogDate.getDate());
+      const formattedDate = format(normalizedDate, "dd-MM-yyyy");
+      const newEvent = {
+        date: formattedDate,
+        title: eventTitle.trim(),
+        uid: auth.currentUser.uid,
+      };
+      
+      console.log("Creating event:", newEvent);
+      
+      // Add event to Firestore
+      const docRef = await addDoc(collection(db, "events"), newEvent);
+      const eventWithId = { ...newEvent, id: docRef.id };
+      
+      console.log("Event created successfully with ID:", docRef.id);
+      
+      // Update local state
+      setEvents(prev => [...prev, eventWithId]);
+      
+      // Send webhook notification (don't let this fail the event creation)
+      try {
+        await sendWebhookNotification(eventWithId);
+      } catch (webhookError) {
+        console.error("Webhook failed but event was created:", webhookError);
+      }
+      
+      // Close dialog and reset form
+      setShowDialog(false);
+      setEventTitle("");
+      setDialogDate(null);
+      
+      console.log("Event creation process completed successfully");
+    } catch (error) {
+      console.error("Error creating event:", error);
+      setError(`Failed to create event: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    } finally {
+      setIsLoading(false);
+    }
   };
   
   const handleDeleteEvent = async (eventToDelete: Event) => {
-    setEvents(prev => prev.filter(event => event.id !== eventToDelete.id));
-    if (eventToDelete.id) {
-      await deleteDoc(doc(db, "events", eventToDelete.id));
+    try {
+      setEvents(prev => prev.filter(event => event.id !== eventToDelete.id));
+      if (eventToDelete.id) {
+        await deleteDoc(doc(db, "events", eventToDelete.id));
+        console.log("Event deleted successfully");
+      }
+    } catch (error) {
+      console.error("Error deleting event:", error);
+      setError("Failed to delete event");
+      // Restore the event in case of error
+      setEvents(prev => [...prev, eventToDelete]);
     }
   };
 
@@ -202,7 +232,7 @@ const Calendar: React.FC = () => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none
+          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none cursor-pointer
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
@@ -229,35 +259,55 @@ const Calendar: React.FC = () => {
       </div>
     );
   };
+
 const dialogBox = showDialog && (
   <div className="fixed inset-0 flex backdrop-blur-sm items-center justify-center z-50">
     <div className="bg-white p-6 rounded-xl text-black flex flex-col gap-6 ml-10 mb-10 h-50 w-100">
-      <h3 className="text-lg font-bold">Add Event</h3>
+      <h3 className="text-lg font-bold">Add Event for {dialogDate ? format(dialogDate, "dd-MM-yyyy") : ""}</h3>
+      {error && (
+        <div className="text-red-500 text-sm bg-red-50 p-2 rounded">
+          {error}
+        </div>
+      )}
       <input
         className="border p-2 rounded"
         type="text"
         placeholder="Event title"
         value={eventTitle}
         onChange={(e) => setEventTitle(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter' && !isLoading) {
+            handleAddEvent();
+          }
+        }}
         autoFocus
+        disabled={isLoading}
       />
       <div className="flex gap-2 justify-end">
         <button
-          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500"
-          onClick={() => {setShowDialog(false); setEventTitle(""); setDialogDate(null);}}
+          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500 disabled:opacity-50"
+          onClick={() => {
+            setShowDialog(false); 
+            setEventTitle(""); 
+            setDialogDate(null);
+            setError("");
+          }}
+          disabled={isLoading}
         >
           Cancel
         </button>
         <button
-          className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700"
+          className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={handleAddEvent}
+          disabled={isLoading || !eventTitle.trim()}
         >
-          Add
+          {isLoading ? "Adding..." : "Add"}
         </button>
       </div>
     </div>
   </div>
   );
+
   const renderSelectedDateEvents = () => {
   if (!selectedDate) {
     return <p>Select a date to view its events.</p>;
@@ -347,6 +397,7 @@ return (
               onClick={() => {
                setDialogDate(new Date());
                setShowDialog(true);
+               setError("");
               }}
             >
               Add an event for today
