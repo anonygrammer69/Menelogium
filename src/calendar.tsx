@@ -383,8 +383,8 @@ return (
           <div
             className={`
             fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-white to-slate-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
-            transition-transform duration-500 ease-in-out
-            ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+            transition duration-300 ease-in-out
+            ${showSidebar ? "translate-x-0" : "translate-x-4"}
            `}
             style={{ willChange: "transform" }}
           >
