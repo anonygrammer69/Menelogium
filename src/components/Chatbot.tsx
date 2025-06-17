@@ -92,7 +92,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chat Window */}
       <div
-        className={`relative w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
+        className={`absolute bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 bg-none pointer-events-none'
         }`}
         style={{ 
@@ -174,10 +174,10 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-none text-white rounded-full justify-center align-items hover:shadow-lg transition-all duration-300 z-50 flex"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-none text-white rounded-full justify-center hover:shadow-lg transition-all duration-300 z-50 flex"
       >
         {isOpen ? (
-          <span className="text-2xl font-bold">×</span>
+          <span className="text-2xl align-middle font-bold">×</span>
         ) : (
           <div className="flex items-center">
             <svg
