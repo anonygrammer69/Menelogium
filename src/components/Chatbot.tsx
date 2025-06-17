@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import GrokIcon from './grok icon.png';
 
 interface Message {
   id: string;
@@ -176,26 +177,7 @@ const Chatbot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 flex"
       >
-        {isOpen ? (
-          <span className="text-2xl align-middle font-bold">×</span>
-        ) : (
-          <div className="flex items-center">
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          </div>
-        )}
+        <img src={GrokIcon} alt="Chatbot" className="w-12 h-12"/>
       </button>
     </>
   );
