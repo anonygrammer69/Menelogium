@@ -4,6 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import AuthForm from "./Authform";
 import GptChat from "./GptChat.tsx";
+import Chatbot from "./components/Chatbot";
 import './App.css';
 import './calendar.css';
 import Calendar from './calendar.tsx'; 
@@ -35,11 +36,10 @@ function App() {
         </a>
       </div>
       <div>
-        <p>
-          <Calendar />
-          <GptChat />
-        </p>
+        <Calendar />
+        <GptChat />
       </div>
+      <Chatbot />
       <p className="read-the-docs">
       </p>
     </>
