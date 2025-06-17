@@ -184,7 +184,7 @@ const Chatbot: React.FC = () => {
         ) : (
           <div className="flex flex-col items-center">
             <svg
-              className="w-7 h-7"
+              className="w-7 h-7 bg-none"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
