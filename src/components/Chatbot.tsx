@@ -172,7 +172,7 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex fixed bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 chatbot-menu-icon"
+        className="flex fixed bg-gradient-to-br bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 chatbot-menu-icon"
       >
         <img src={GrokIcon} alt="Chatbot" className=" w-16 h-16 bg-gray-200 rounded-xl hover:border-2 border-black"/>
       </button>
