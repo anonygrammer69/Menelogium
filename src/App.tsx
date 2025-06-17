@@ -37,7 +37,6 @@ function App() {
       </div>
       <div>
         <Calendar />
-        <GptChat />
       </div>
       <Chatbot />
       <p className="read-the-docs">
