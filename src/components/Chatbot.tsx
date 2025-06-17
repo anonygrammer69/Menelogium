@@ -93,10 +93,9 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chat Window */}
       <div
-        className={`absolute bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
+        className={`absolute bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 chatbot-menu ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 bg-none pointer-events-none'
         }`}
-        style={{ background: "transparent"}}
       >
         {/* Header */}
         <div className="bg-gray-900 text-white p-4 rounded-t-lg flex justify-between border-t-lg items-center border-gray-800">
@@ -173,10 +172,9 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 flex"
-        style={{background: "transparent"}}
+        className="fixed bg-transparent bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 flex"
       >
-        <img src={GrokIcon} alt="Chatbot" className="rounded-xl hover:border-2 border-black"/>
+        <img src={GrokIcon} alt="Chatbot" className=" w-16 h-16 rounded-xl hover:border-2 border-black"/>
       </button>
     </>
   );
