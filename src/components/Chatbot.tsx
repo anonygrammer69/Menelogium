@@ -93,7 +93,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chat Window */}
       <div
-        className={`absolute bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
+        className={`sticky bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -174,7 +174,7 @@ const Chatbot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex hover:cursor-pointer z-40"
       >
-        <img src={GrokIcon} alt="Chatbot" className="relative bottom-6 right-6 w-16 h-16 bg-gray-200 rounded-xl hover:border-2 border-black"/>
+        <img src={GrokIcon} alt="Chatbot" className="fixed bottom-6 right-6 w-16 h-16 bg-gray-200 rounded-xl hover:border-2 border-black hover:bg-gray-400 transition duration-300 ease-in-out"/>
       </button>
     </>
   );
