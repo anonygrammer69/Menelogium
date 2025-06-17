@@ -92,15 +92,15 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chat Window */}
       <div
-        className={`absolute bottom-20 right-6 w-80 h-96 bg-white border-4 border-gray-900 rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
-          isOpen ? 'opacity-100 translate-y-0 bg-blend-color' : 'opacity-0 translate-y-4 bg-blend-color pointer-events-none'
+        className={`absolute bottom-20 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 ${
+          isOpen ? 'opacity-100 translate-y-0 bg-gradient-to-b' : 'opacity-0 translate-y-4 bg-gradient-to-b pointer-events-none'
         }`}
         style={{ 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.1)' 
         }}
       >
         {/* Header */}
-        <div className="bg-gray-900 text-white p-4 rounded-t-lg flex justify-between items-center border-b-2 border-gray-800">
+        <div className="bg-gray-900 text-white p-4 rounded-t-lg flex justify-between border-t-lg items-center border-gray-800">
           <h3 className="font-bold text-lg font-garamond">🤖 AI Assistant</h3>
           <button
             onClick={() => setIsOpen(false)}
@@ -174,14 +174,14 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 text-white rounded-full justify-center hover:bg-gray-800 hover:shadow-lg transition-all duration-300 z-50 flex border-4 border-white"
+        className="fixed bottom-6 right-6 w-16 h-16 text-white rounded-full justify-center hover:bg-gray-800 hover:shadow-lg transition-all duration-300 z-50 flex"
       >
         {isOpen ? (
           <span className="text-2xl font-bold">×</span>
         ) : (
           <div className="flex items-center">
             <svg
-              className="w-7 h-7"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
