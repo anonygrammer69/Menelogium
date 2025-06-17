@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 import AuthForm from "./Authform";
-import GptChat from "./GptChat.tsx";
 import Chatbot from "./components/Chatbot";
 import './App.css';
 import './calendar.css';
