@@ -174,7 +174,7 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-none text-white rounded-full justify-center hover:shadow-lg transition-all duration-300 z-50 flex"
+        className="fixed bottom-6 right-6 w-2 h-2 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 flex"
       >
         {isOpen ? (
           <span className="text-2xl align-middle font-bold">×</span>
