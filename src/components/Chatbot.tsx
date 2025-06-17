@@ -174,10 +174,7 @@ const Chatbot: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 text-white rounded-full hover:bg-gray-800 hover:shadow-2xl transition-all duration-300 z-40 flex border-4 border-white"
-        style={{ 
-          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1)' 
-        }}
+        className="fixed bottom-6 right-6 w-16 h-16 text-white rounded-full justify-center hover:bg-gray-800 hover:shadow-2xl transition-all duration-300 z-40 flex border-4 border-white"
       >
         {isOpen ? (
           <span className="text-2xl font-bold">×</span>
