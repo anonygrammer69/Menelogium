@@ -177,7 +177,7 @@ const Chatbot: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 text-white rounded-lg justify-center hover:border-2 hover:border-black transition-all duration-300 z-50 flex"
       >
-        <img src={GrokIcon} alt="Chatbot" className="w-12 h-12"/>
+        <img src={GrokIcon} alt="Chatbot" className="rounded-xl hover:border-2 border-black"/>
       </button>
     </>
   );
