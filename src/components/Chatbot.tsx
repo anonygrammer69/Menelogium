@@ -40,6 +40,7 @@ const Chatbot: React.FC = () => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const messageToSend = inputText.trim();
     setInputText('');
     setIsLoading(true);
 
@@ -49,7 +50,7 @@ const Chatbot: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: userMessage.text }),
+        body: JSON.stringify({ chatInput: messageToSend }),
       });
 
       if (!response.ok) {
@@ -60,7 +61,7 @@ const Chatbot: React.FC = () => {
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.result || 'Sorry, I couldn\'t process your request.',
+        text: data.result || data.response || 'Sorry, I couldn\'t process your request.',
         isUser: false,
         timestamp: new Date()
       };
