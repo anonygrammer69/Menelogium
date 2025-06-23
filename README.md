@@ -9,7 +9,7 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 
 ---
 
-## ✨ Alpha-0.1.1 – What Works
+## ✨ Alpha-V0.1 – What Works
 
 - ✅ **Interactive Calendar**
   
@@ -23,18 +23,18 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
     
   Scheduled and dispatched through **n8n** before your events start.
 
-## ✨ Alpha-0.1.2 - What's new
+## ✨ Alpha-V0.2 - What's new
 
 - ✨ **UI Revamp** 
   
-  A brand new, more modern and clean look has been implemented for the calendar grid for a better User Experience and visual aesthetics.
+  A brand new, more modern and clean look has been implemented for the calendar grid for a better user experience and visual aesthetics.
   A whole new background theme has also been laid down, enhancing the overall appearence of the app.
 
 - 📃 **New Side-Bar Menu**
   
   A new side-bar menu has also been added in this update, which augments layout organization, eases navigation through the calendar for the user, and provides a base for more new features!
 
-## ✨ Alpha-0.1.3 - What's new
+## ✨ Alpha-V0.3 - What's new
 
 - 🤖 **New AI-powered chatbot**
 
