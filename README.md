@@ -25,7 +25,7 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 
 ## ✨ Alpha-0.1.2 - What's new
 
-- ✨ **UI Revamp** ✨
+- ✨ **UI Revamp** 
   
   A brand new, more modern and clean look has been implemented for the calendar grid for a better User Experience and visual aesthetics.
   A whole new background theme has also been laid down, enhancing the overall appearence of the app.
@@ -33,6 +33,18 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 - 📃 **New Side-Bar Menu**
   
   A new side-bar menu has also been added in this update, which augments layout organization, eases navigation through the calendar for the user, and provides a base for more new features!
+
+## ✨ Alpha-0.1.3 - What's new
+
+- 🤖 **New AI-powered chatbot**
+
+  One of the stand-out features of this app, a brand new, AI-powered chatbot has been implemented to elevate user experience, and ease your event scheduling, as well as for general text-based assistance.
+  More enhanced AI-driven features are in the works, meticulously crafted to upscale how the user uses this app. (To come)
+
+- 🔃 **UI Updates**
+
+  Slight updates to the overall app's UI have been done, to improve readability, navigation and overall appearence.
+
   
 ---
 
