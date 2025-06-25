@@ -46,6 +46,8 @@ const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
+      console.log('Sending request with payload:', { chatInput: messageToSend });
+      
       const response = await fetch('https://pumped-sincerely-coyote.ngrok-free.app/webhook/groq-prompt', {
         method: 'POST',
         headers: {
@@ -54,15 +56,48 @@ const Chatbot: React.FC = () => {
         body: JSON.stringify({ chatInput: messageToSend }),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
+      const responseText = await response.text();
+      console.log('Raw response text:', responseText);
+
+      let data;
+      try {
+        data = JSON.parse(responseText);
+        console.log('Parsed response data:', data);
+      } catch (parseError) {
+        console.error('Failed to parse JSON:', parseError);
+        // If it's not JSON, treat the raw text as the response
+        data = { response: responseText };
+      }
       
+      // Try multiple possible response fields
+      let botResponseText = '';
+      if (data.result) {
+        botResponseText = data.result;
+      } else if (data.response) {
+        botResponseText = data.response;
+      } else if (data.message) {
+        botResponseText = data.message;
+      } else if (data.text) {
+        botResponseText = data.text;
+      } else if (data.content) {
+        botResponseText = data.content;
+      } else if (typeof data === 'string') {
+        botResponseText = data;
+      } else {
+        // If none of the expected fields exist, stringify the entire response
+        botResponseText = JSON.stringify(data, null, 2);
+      }
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.result || data.response || 'Sorry, I couldn\'t process your request.',
+        text: botResponseText || 'I received your message but couldn\'t find a response.',
         isUser: false,
         timestamp: new Date()
       };
@@ -72,7 +107,7 @@ const Chatbot: React.FC = () => {
       console.error('Error sending message:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, I\'m having trouble connecting right now. Please try again later.',
+        text: `Connection error: ${error instanceof Error ? error.message : 'Unknown error'}. Please check the console for details.`,
         isUser: false,
         timestamp: new Date()
       };
