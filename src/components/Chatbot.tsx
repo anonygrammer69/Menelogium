@@ -57,28 +57,23 @@ const Chatbot: React.FC = () => {
       });
 
       console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const responseText = await response.text();
-      console.log('Raw response text:', responseText);
-
-      let data;
-      try {
-        data = JSON.parse(responseText);
-        console.log('Parsed response data:', data);
-      } catch (parseError) {
-        console.error('Failed to parse JSON:', parseError);
-        // If it's not JSON, treat the raw text as the response
-        data = { response: responseText };
-      }
+      const data = await response.json();
+      console.log('Parsed response data:', data);
       
-      // Try multiple possible response fields
+      // Extract text from the "output" field and clean it up
       let botResponseText = '';
-      if (data.result) {
+      if (data.output) {
+        // Remove emojis and extra whitespace, clean up the text
+        botResponseText = data.output
+          .replace(/👋/g, '') // Remove wave emoji
+          .replace(/\n+/g, ' ') // Replace multiple newlines with single space
+          .trim(); // Remove leading/trailing whitespace
+      } else if (data.result) {
         botResponseText = data.result;
       } else if (data.response) {
         botResponseText = data.response;
@@ -91,8 +86,7 @@ const Chatbot: React.FC = () => {
       } else if (typeof data === 'string') {
         botResponseText = data;
       } else {
-        // If none of the expected fields exist, stringify the entire response
-        botResponseText = JSON.stringify(data, null, 2);
+        botResponseText = 'I received your message but couldn\'t find a response.';
       }
 
       const botMessage: Message = {
