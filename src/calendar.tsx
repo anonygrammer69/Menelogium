@@ -233,9 +233,9 @@ const Calendar: React.FC = () => {
         <div
           key={currentDay.toString()}
           className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none cursor-pointer
-            ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
+            ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400 dark:text-gray-500" : ""}
             ${isSameDay(currentDay, new Date())
-              ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
+              ? "bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 hover:shadow-xl hover:shadow-red-700 transition duration-300"
               : "bg-slate-300 text-black hover:shadow-xl hover:shadow-blue-700 hover:bg-blue-500 transition duration-300 dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600"
             }
           `}
@@ -265,7 +265,7 @@ const dialogBox = showDialog && (
     <div className="bg-white p-6 rounded-xl text-black flex flex-col gap-6 ml-10 mb-10 h-50 w-100 dark:bg-slate-800 dark:text-gray-100">
       <h3 className="text-lg font-bold">Add Event for {dialogDate ? format(dialogDate, "dd-MM-yyyy") : ""}</h3>
       {error && (
-        <div className="text-red-500 text-sm bg-red-50 p-2 rounded">
+        <div className="text-red-500 text-sm bg-red-50 dark:bg-red-900 dark:text-red-300 p-2 rounded">
           {error}
         </div>
       )}
