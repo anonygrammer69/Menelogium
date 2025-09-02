@@ -21,7 +21,11 @@ const years = Array.from({ length: 100 }, (_, i) => (new Date().getFullYear() - 
 // Webhook URL for n8n
 const WEBHOOK_URL = "https://pumped-sincerely-coyote.ngrok-free.app/webhook/send-reminder";
 
-const Calendar: React.FC = () => {
+interface CalendarProps {
+  theme: string;
+}
+
+const Calendar: React.FC<CalendarProps> = ({ theme }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -79,6 +83,11 @@ const Calendar: React.FC = () => {
       document.body.style.overflow = "";
     };
   }, [showDialog]);
+
+  // Force re-render when theme changes
+  useEffect(() => {
+    console.log("Calendar theme changed to:", theme);
+  }, [theme]);
 
   // Function to send webhook request
   const sendWebhookNotification = async (eventData: Event) => {
