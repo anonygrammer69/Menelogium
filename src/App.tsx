@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="w-full min-h-screen text-gray-900 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300">
       <button
         className="absolute top-2 left-2 z-50 inline-flex items-center gap-2 select-none"
         onClick={toggleTheme}
