@@ -6,9 +6,10 @@
   padding: 2rem;
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
+  position: relative;
 }
 
-#root ::after {
+#root::after {
   content: '';
   position: absolute;
   top: 0;
@@ -21,7 +22,7 @@
   overflow: hidden;
 }
 @media (min-width: 640px) {
-  #root ::after {
+  #root::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -34,7 +35,7 @@
 }
 
 @media (min-width: 768px) {
-  #root ::after {
+  #root::after {
     content: '';
     position: absolute;
     top: 0;
@@ -49,7 +50,7 @@
 }
 
 @media (min-width: 1024px) {
-  #root ::after {
+  #root::after {
     content: '';
     position: absolute;
     top: 0;
@@ -57,10 +58,14 @@
     width: 100%;
     height: 165%;
     z-index: -1;
-    background: linear-gradient(#0b1021, #0b1b3a);
+    background: linear-gradient(#c4aeae, #1d4380);
     background-size: cover;
     overflow: hidden;
   }
+}
+
+.dark #root::after {
+  background: linear-gradient(#0b1021, #0b1b3a);
 }
 
 .google-logo {
