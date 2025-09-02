@@ -22,7 +22,7 @@
 }
 
 .dark #root::after {
-  background: linear-gradient(#0b1021, #0b1b3a);
+  background: linear-gradient(#0b1021, #173268);
 }
 
 .google-logo {
@@ -46,8 +46,4 @@
 
 .dark #root {
   color: #e5e7eb;
-}
-
-.dark #root ::after {
-  background: linear-gradient(#0b1021, #0b1b3a);
 }
