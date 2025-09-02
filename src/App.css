@@ -22,7 +22,7 @@
 }
 
 .dark #root::after {
-  background: linear-gradient(#153294, #102554);
+  background: linear-gradient(#0d1a45, #18377a);
 }
 
 .google-logo {
