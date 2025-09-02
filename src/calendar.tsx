@@ -201,7 +201,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
             : 'hover:bg-gray-300 hover:border-2 hover:border-gray-400'
         }`}/>
       </button>
-      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:bg-blue-400 hover:border-2 rounded-xl bg-blue-300 dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
+      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:border-2 rounded-xl dark:border-slate-600"
         onChange={(e) => handleMonthChange(e.target.value)}
         value={format(currentMonth, "MMMM")}>
         {months.map((month) => (
@@ -210,7 +210,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
         </option>
         ))}
       </select>
-      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:bg-blue-400 hover:border-2 rounded-xl bg-blue-300 dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
+      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:border-2 rounded-xl dark:border-slate-600"
         onChange={handleYearChange} 
         value={format(currentMonth, "yyyy")}>
         {years.map((year) => (
@@ -219,15 +219,11 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
         </option>
           ))}
       </select>
-      <button
-      className="hover:cursor-pointer"
+      <button 
+      className="hover:cursor-pointer" 
       onClick={() => (setCurrentMonth(addMonths(currentMonth, 1)))}
       aria-label="Next month">
-        <img src={rightArrow} alt="Next" className={`relative top-1 w-6.5 h-6.5 p-0.5 rounded ${
-          theme === 'dark'
-            ? 'hover:bg-gray-600 hover:border-2 hover:border-gray-500'
-            : 'hover:bg-gray-300 hover:border-2 hover:border-gray-400'
-        }`}/>
+        <img src={rightArrow} alt="Next" className="relative top-1 w-6.5 h-6.5 p-0.5 hover:bg-gray-300 hover:border-2 rounded"/>
       </button>
     </div>
   );
