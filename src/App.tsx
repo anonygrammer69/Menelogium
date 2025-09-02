@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="w-full min-h-screen bg-transparent text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <button
-        className="absolute top-2 left-2 z-50 inline-flex items-center gap-2 select-none"
+        className="absolute top-4 left-2 z-50 inline-flex items-center gap-2 select-none"
         onClick={toggleTheme}
         role="switch"
         aria-checked={theme === 'dark'}
