@@ -177,14 +177,14 @@ const Calendar: React.FC = () => {
   };
 
   const renderHeader = () => (
-    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-300 border-black rounded-lg text-black text-lg font-semibold">
+    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-300 border-black rounded-lg text-black text-lg font-semibold dark:from-slate-800 dark:to-slate-700 dark:text-gray-100 dark:border-slate-600">
       <button 
       className="hover:cursor-pointer" 
       onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
       aria-label="Previous month">
         <img src={leftArrow} alt="Previous" className="relative top-1 w-6.5 h-6.5 p-0.5 hover:bg-gray-300 hover:border-2 rounded"/>
       </button>
-      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:bg-white hover:border-2 rounded-xl"
+      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:bg-white hover:border-2 rounded-xl dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
         onChange={(e) => handleMonthChange(e.target.value)}
         value={format(currentMonth, "MMMM")}>
         {months.map((month) => (
@@ -193,7 +193,7 @@ const Calendar: React.FC = () => {
         </option>
         ))}
       </select>
-      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:bg-white hover:border-2 rounded-xl"
+      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:bg-white hover:border-2 rounded-xl dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
         onChange={handleYearChange} 
         value={format(currentMonth, "yyyy")}>
         {years.map((year) => (
@@ -215,7 +215,7 @@ const Calendar: React.FC = () => {
   const renderDays = () => {
     const days = [];
     days.push(
-    <div className="flex flex-row justify-evenly text-black text-lg">
+    <div className="flex flex-row justify-evenly text-black text-lg dark:text-gray-200">
       {weekdays.map((day) => (
         <div key={day}>
           {day}
@@ -236,7 +236,7 @@ const Calendar: React.FC = () => {
             ${!isSameMonth(currentDay, currentMonth) ? "text-gray-400" : ""}
             ${isSameDay(currentDay, new Date())
               ? "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300"
-              : "bg-slate-300 text-black hover:shadow-xl hover:shadow-blue-700 hover:bg-blue-500 transition duration-300"
+              : "bg-slate-300 text-black hover:shadow-xl hover:shadow-blue-700 hover:bg-blue-500 transition duration-300 dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600"
             }
           `}
           onClick={() => handleDateClick(currentDay)}
@@ -248,7 +248,7 @@ const Calendar: React.FC = () => {
     }
     return (
       <div>
-        <div className="grid grid-cols-7 border-2 border-black rounded-lg text-black bg-slate-300 text-lg mb-2">
+        <div className="grid grid-cols-7 border-2 border-black rounded-lg text-black bg-slate-300 text-lg mb-2 dark:bg-slate-800 dark:text-gray-100 dark:border-slate-600">
           {weekdays.map((day) => (
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
@@ -262,7 +262,7 @@ const Calendar: React.FC = () => {
 
 const dialogBox = showDialog && (
   <div className="fixed inset-0 flex backdrop-blur-sm items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-xl text-black flex flex-col gap-6 ml-10 mb-10 h-50 w-100">
+    <div className="bg-white p-6 rounded-xl text-black flex flex-col gap-6 ml-10 mb-10 h-50 w-100 dark:bg-slate-800 dark:text-gray-100">
       <h3 className="text-lg font-bold">Add Event for {dialogDate ? format(dialogDate, "dd-MM-yyyy") : ""}</h3>
       {error && (
         <div className="text-red-500 text-sm bg-red-50 p-2 rounded">
@@ -270,7 +270,7 @@ const dialogBox = showDialog && (
         </div>
       )}
       <input
-        className="border p-2 rounded"
+        className="border p-2 rounded dark:bg-slate-900 dark:text-gray-100 dark:border-slate-600"
         type="text"
         placeholder="Event Title"
         value={eventTitle}
@@ -284,7 +284,7 @@ const dialogBox = showDialog && (
       />
       <div className="flex gap-2 justify-end">
         <button
-          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500"
+          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500 dark:bg-slate-600 dark:hover:bg-slate-500"
           onClick={() => {
             setShowDialog(false); 
             setEventTitle(""); 
@@ -319,7 +319,7 @@ const dialogBox = showDialog && (
   return (
     <ul>
       {selectedDateEvents.map((e, i) => (
-        <li key={i} className="justify-center font-garamond text-black text-lg">
+        <li key={i} className="justify-center font-garamond text-black text-lg dark:text-gray-100">
           {formattedDate}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
@@ -356,7 +356,7 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="justify-center font-garamond text-black text-lg">
+        <li key={e.id || i} className="justify-center font-garamond text-black text-lg dark:text-gray-100">
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}

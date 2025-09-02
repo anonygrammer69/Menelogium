@@ -60,13 +60,22 @@ function App() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100">
+    <div className="w-full min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300">
       <button
-        className="absolute top-2 left-2 z-50 px-3 py-1 rounded border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 transition"
+        className="absolute top-2 left-2 z-50 inline-flex items-center gap-2 select-none"
         onClick={toggleTheme}
+        role="switch"
+        aria-checked={theme === 'dark'}
         aria-label="Toggle dark mode"
       >
-        {theme === 'dark' ? 'Light' : 'Dark'}
+        <span className="text-xs opacity-80">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+        <span
+          className={`relative h-6 w-11 rounded-full transition-colors duration-300 ${theme === 'dark' ? 'bg-blue-500' : 'bg-gray-300'}`}
+        >
+          <span
+            className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300 will-change-transform ${theme === 'dark' ? 'translate-x-5' : 'translate-x-0'}`}
+          />
+        </span>
       </button>
       <button
         className="absolute top-8 sm:right-2 lg:right-16 bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700 transition duration-300 hover:cursor-pointer px-4 py-2 rounded"
