@@ -11,57 +11,13 @@
 
 #root::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 110%;
-  height: 400%;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
-  background: linear-gradient(#cfc699, #5572a2);
+  background: linear-gradient(#c4aeae, #1d4380);
   background-size: cover;
-  overflow: hidden;
-}
-@media (min-width: 640px) {
-  #root::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 435%;
-    z-index: -1;
-    background: linear-gradient(#cfc699, #5572a2);
-    background-size: cover;
-    overflow: hidden;
-  }
-}
-
-@media (min-width: 768px) {
-  #root::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    z-index: -1;
-    background: linear-gradient(#c4aeae, #1d4380);
-    background-size: cover;
-    overflow: hidden;
-  }
-}
-
-@media (min-width: 1024px) {
-  #root::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 165%;
-    z-index: -1;
-    background: linear-gradient(#c4aeae, #1d4380);
-    background-size: cover;
-    overflow: hidden;
-  }
 }
 
 .dark #root::after {
