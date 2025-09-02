@@ -60,7 +60,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="w-full min-h-screen bg-white text-gray-900 dark:bg-slate-900 dark:text-gray-100">
       <button
         className="absolute top-2 left-2 z-50 px-3 py-1 rounded border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 transition"
         onClick={toggleTheme}
@@ -86,7 +86,7 @@ function App() {
       <Chatbot />
       <p className="read-the-docs">
       </p>
-    </>
+    </div>
   )
 }
 
