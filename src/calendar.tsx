@@ -186,7 +186,11 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
   };
 
   const renderHeader = () => (
-    <div className="flex-row border-2 bg-gradient-to-b from-white to-slate-300 border-black rounded-lg text-black text-lg font-semibold dark:from-slate-800 dark:to-slate-700 dark:text-gray-100 dark:border-slate-600">
+    <div className={`flex-row border-2 rounded-lg text-lg font-semibold ${
+      theme === 'dark'
+        ? 'bg-gradient-to-b from-slate-800 to-slate-700 text-gray-100 border-slate-600'
+        : 'bg-gradient-to-b from-white to-slate-300 text-black border-black'
+    }`}>
       <button 
       className="hover:cursor-pointer" 
       onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} 
@@ -224,7 +228,9 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
   const renderDays = () => {
     const days = [];
     days.push(
-    <div className="flex flex-row justify-evenly text-black text-lg dark:text-gray-200">
+    <div className={`flex flex-row justify-evenly text-lg ${
+      theme === 'dark' ? 'text-gray-200' : 'text-black'
+    }`}>
       {weekdays.map((day) => (
         <div key={day}>
           {day}
@@ -241,14 +247,17 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
       dayCells.push(
         <div
           key={currentDay.toString()}
-          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none cursor-pointer transition duration-300
-            ${!isSameMonth(currentDay, currentMonth)
-              ? "text-gray-400 dark:text-gray-500"
+          className={`flex items-center justify-center rounded-sm w-26 h-24 font-sans select-none cursor-pointer transition duration-300 ${
+            !isSameMonth(currentDay, currentMonth)
+              ? theme === 'dark' ? "text-gray-500" : "text-gray-400"
               : isSameDay(currentDay, new Date())
-                ? "bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 hover:shadow-xl hover:shadow-red-700"
-                : "bg-slate-300 text-black hover:bg-blue-500 dark:bg-slate-700 dark:text-gray-100 dark:hover:bg-slate-600 hover:shadow-xl hover:shadow-blue-700"
-            }
-          `}
+                ? theme === 'dark'
+                  ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-xl hover:shadow-red-700"
+                  : "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700"
+                : theme === 'dark'
+                  ? "bg-slate-700 text-gray-100 hover:bg-slate-600 hover:shadow-xl hover:shadow-blue-700"
+                  : "bg-slate-300 text-black hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-700"
+          }`}
           onClick={() => handleDateClick(currentDay)}
         >
           {format(currentDay, "dd")}
@@ -258,7 +267,11 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
     }
     return (
       <div>
-        <div className="grid grid-cols-7 border-2 border-black rounded-lg text-black bg-slate-300 text-lg mb-2 dark:bg-slate-800 dark:text-gray-100 dark:border-slate-600">
+        <div className={`grid grid-cols-7 border-2 rounded-lg text-lg mb-2 ${
+          theme === 'dark'
+            ? 'border-slate-600 bg-slate-800 text-gray-100'
+            : 'border-black bg-slate-300 text-black'
+        }`}>
           {weekdays.map((day) => (
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
           ))}
@@ -272,7 +285,11 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
 
 const dialogBox = showDialog && (
   <div className="fixed inset-0 flex backdrop-blur-sm items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-xl text-black flex flex-col gap-6 ml-10 mb-10 h-50 w-100 dark:bg-slate-800 dark:text-gray-100">
+    <div className={`p-6 rounded-xl flex flex-col gap-6 ml-10 mb-10 h-50 w-100 ${
+      theme === 'dark'
+        ? 'bg-slate-800 text-gray-100'
+        : 'bg-white text-black'
+    }`}>
       <h3 className="text-lg font-bold">Add Event for {dialogDate ? format(dialogDate, "dd-MM-yyyy") : ""}</h3>
       {error && (
         <div className="text-red-500 text-sm bg-red-50 dark:bg-red-900 dark:text-red-300 p-2 rounded">
@@ -280,7 +297,11 @@ const dialogBox = showDialog && (
         </div>
       )}
       <input
-        className="border p-2 rounded dark:bg-slate-900 dark:text-gray-100 dark:border-slate-600"
+        className={`border p-2 rounded ${
+          theme === 'dark'
+            ? 'bg-slate-900 text-gray-100 border-slate-600'
+            : 'bg-white text-black border-gray-300'
+        }`}
         type="text"
         placeholder="Event Title"
         value={eventTitle}
@@ -294,10 +315,14 @@ const dialogBox = showDialog && (
       />
       <div className="flex gap-2 justify-end">
         <button
-          className="px-4 py-1 rounded text-white bg-gray-400 hover:bg-gray-500 dark:bg-slate-600 dark:hover:bg-slate-500"
+          className={`px-4 py-1 rounded text-white ${
+            theme === 'dark'
+              ? 'bg-slate-600 hover:bg-slate-500'
+              : 'bg-gray-400 hover:bg-gray-500'
+          }`}
           onClick={() => {
-            setShowDialog(false); 
-            setEventTitle(""); 
+            setShowDialog(false);
+            setEventTitle("");
             setDialogDate(null);
             setError("");
           }}
@@ -305,7 +330,11 @@ const dialogBox = showDialog && (
           Cancel
         </button>
         <button
-          className="px-4 py-1 rounded text-white bg-blue-600 hover:bg-blue-700"
+          className={`px-4 py-1 rounded text-white ${
+            theme === 'dark'
+              ? 'bg-blue-700 hover:bg-blue-800'
+              : 'bg-blue-600 hover:bg-blue-700'
+          }`}
           onClick={handleAddEvent}
         >
           {isLoading ? "Adding..." : "Add"}
@@ -329,11 +358,13 @@ const dialogBox = showDialog && (
   return (
     <ul>
       {selectedDateEvents.map((e, i) => (
-        <li key={i} className="justify-center font-garamond text-black text-lg dark:text-gray-100">
+        <li key={i} className={`justify-center font-garamond text-lg ${
+          theme === 'dark' ? 'text-gray-100' : 'text-black'
+        }`}>
           {formattedDate}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
-            className="hover:bg-red-600 hover:shadow-red-700 hover:shadow-lg transition duration hover:cursor-pointer ml-1 300 rounded font-normal"
+            className="hover:bg-red-600 hover:shadow-red-700 hover:shadow-lg transition duration-300 hover:cursor-pointer ml-1 rounded font-normal"
           >
             ❌
           </button>
@@ -366,11 +397,13 @@ const renderSelectedMonthEvents = () => {
   return (
     <ul>
       {monthEvents.map((e, i) => (
-        <li key={e.id || i} className="justify-center font-garamond text-black text-lg dark:text-gray-100">
+        <li key={e.id || i} className={`justify-center font-garamond text-lg ${
+          theme === 'dark' ? 'text-gray-100' : 'text-black'
+        }`}>
           {e.date}: {e.title}
           <button
             onClick={() => handleDeleteEvent(e)}
-            className="hover:bg-red-600 hover:shadow-red-700 hover:shadow-lg hover:cursor-pointer transition duration 300 rounded ml-1 font-normal"
+            className="hover:bg-red-600 hover:shadow-red-700 hover:shadow-lg hover:cursor-pointer transition duration-300 rounded ml-1 font-normal"
           >
             ❌
           </button>
@@ -392,16 +425,26 @@ return (
         {showSidebar && (
           <div
             className={`
-            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-blue-200 to-blue-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
-            dark:bg-gradient-to-b dark:from-blue-800 dark:to-blue-950 dark:border-slate-600
+            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full border-2 rounded-lg p-4 gap-4 flex flex-col shadow-lg
             transition duration-300 ease-in-out
+            ${
+              theme === 'dark'
+                ? 'bg-gradient-to-b from-blue-800 to-blue-950 border-slate-600'
+                : 'bg-gradient-to-b from-blue-200 to-blue-400 border-black'
+            }
             ${showSidebar ? "translate-x-0" : "translate-x-4"}
            `}
             style={{ willChange: "transform" }}
           >
-            <h2 className="text-xl font-semibold text-black dark:text-gray-100 mt-4 mb-4">Menu</h2>
+            <h2 className={`text-xl font-semibold mt-4 mb-4 ${
+              theme === 'dark' ? 'text-gray-100' : 'text-black'
+            }`}>Menu</h2>
            <button
-              className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition hover:cursor-pointer"
+              className={`py-2 px-4 rounded text-white transition hover:cursor-pointer ${
+                theme === 'dark'
+                  ? 'bg-blue-600 hover:bg-blue-700'
+                  : 'bg-blue-500 hover:bg-blue-600'
+              }`}
               onClick={() => {
                setDialogDate(new Date());
                setShowDialog(true);
@@ -411,13 +454,21 @@ return (
               Add an event for today
             </button>
             <button
-              className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 transition hover:cursor-pointer"
+              className={`py-2 px-4 rounded text-white transition hover:cursor-pointer ${
+                theme === 'dark'
+                  ? 'bg-green-600 hover:bg-green-700'
+                  : 'bg-green-500 hover:bg-green-600'
+              }`}
               onClick={() => setCurrentMonth(new Date())}
            >
              Go to Today
             </button>
             <button
-              className="py-2 px-4 rounded bg-gray-400 text-white hover:bg-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700 transition hover:cursor-pointer mt-auto"
+              className={`py-2 px-4 rounded text-white transition hover:cursor-pointer mt-auto ${
+                theme === 'dark'
+                  ? 'bg-gray-600 hover:bg-gray-700'
+                  : 'bg-gray-400 hover:bg-gray-500'
+              }`}
               onClick={() => setShowSidebar(false)}
             >
               Close Menu
@@ -429,10 +480,16 @@ return (
             {renderHeader()}
             {renderDays()}
           </div>
-          <div className="flex flex-col text-center sm:my-10 md:mt-0 sm:ml-4 md:ml-20 md:mr-0 sm:mr-4 text-black dark:text-gray-100">
-            <h2 className="text-2xl text-black dark:text-gray-100 font-garamond underline">Events for this month</h2>
+          <div className={`flex flex-col text-center sm:my-10 md:mt-0 sm:ml-4 md:ml-20 md:mr-0 sm:mr-4 ${
+            theme === 'dark' ? 'text-gray-100' : 'text-black'
+          }`}>
+            <h2 className={`text-2xl font-garamond underline ${
+              theme === 'dark' ? 'text-gray-100' : 'text-black'
+            }`}>Events for this month</h2>
             {renderSelectedMonthEvents()}
-            <h2 className="text-xl mt-4 mb-2 underline text-black dark:text-gray-100 font-garamond">
+            <h2 className={`text-xl mt-4 mb-2 underline font-garamond ${
+              theme === 'dark' ? 'text-gray-100' : 'text-black'
+            }`}>
               Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
             </h2>
             {renderSelectedDateEvents()}
