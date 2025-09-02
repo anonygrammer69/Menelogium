@@ -8,9 +8,7 @@
       (function() {
         try {
           var storedTheme = localStorage.getItem('theme');
-          var userThemeSet = localStorage.getItem('userThemeSet') === 'true';
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if ((userThemeSet && storedTheme === 'dark') || (!userThemeSet && prefersDark)) {
+          if (storedTheme === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');

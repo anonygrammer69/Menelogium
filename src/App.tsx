@@ -13,12 +13,7 @@ function App() {
   const [theme, setTheme] = useState<string>(() => {
     if (typeof window === 'undefined') return 'light';
     const stored = localStorage.getItem('theme');
-    if (stored) return stored;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
-  const [userThemeSet, setUserThemeSet] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    return localStorage.getItem('userThemeSet') === 'true';
+    return stored === 'dark' ? 'dark' : 'light';
   });
 
   useEffect(() => {
@@ -35,24 +30,18 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  useEffect(() => {
-    localStorage.setItem('userThemeSet', userThemeSet ? 'true' : 'false');
-  }, [userThemeSet]);
-
-  useEffect(() => {
-    const mql = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!userThemeSet) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-    mql.addEventListener('change', handleChange);
-    return () => mql.removeEventListener('change', handleChange);
-  }, [userThemeSet]);
+  // no system auto-detect listeners
 
   const toggleTheme = () => {
-    setUserThemeSet(true);
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    const next = theme === 'dark' ? 'light' : 'dark';
+    // Apply immediately to avoid any visual lag
+    if (next === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', next);
+    setTheme(next);
   };
   
   if (!user) {
