@@ -382,15 +382,16 @@ return (
         {showSidebar && (
           <div
             className={`
-            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-blue-800 to-blue-950 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
+            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-blue-200 to-blue-400 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
+            dark:bg-gradient-to-b dark:from-blue-800 dark:to-blue-950 dark:border-slate-600
             transition duration-300 ease-in-out
             ${showSidebar ? "translate-x-0" : "translate-x-4"}
            `}
             style={{ willChange: "transform" }}
           >
-            <h2 className="text-xl font-semibold text-black dark:text-black mt-4 mb-4">Menu</h2>
+            <h2 className="text-xl font-semibold text-black dark:text-gray-100 mt-4 mb-4">Menu</h2>
            <button
-              className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
+              className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition hover:cursor-pointer"
               onClick={() => {
                setDialogDate(new Date());
                setShowDialog(true);
@@ -400,13 +401,13 @@ return (
               Add an event for today
             </button>
             <button
-              className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 transition hover:cursor-pointer"
+              className="py-2 px-4 rounded bg-green-500 text-white hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 transition hover:cursor-pointer"
               onClick={() => setCurrentMonth(new Date())}
            >
              Go to Today
             </button>
             <button
-              className="py-2 px-4 rounded bg-gray-400 text-white hover:bg-gray-500 transition hover:cursor-pointer mt-auto"
+              className="py-2 px-4 rounded bg-gray-400 text-white hover:bg-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700 transition hover:cursor-pointer mt-auto"
               onClick={() => setShowSidebar(false)}
             >
               Close Menu
@@ -418,10 +419,10 @@ return (
             {renderHeader()}
             {renderDays()}
           </div>
-          <div className="flex flex-col text-center sm:my-10 md:mt-0 sm:ml-4 md:ml-20 md:mr-0 sm:mr-4 text-black">
-            <h2 className="text-2xl text-black font-garamond underline">Events for this month</h2>
+          <div className="flex flex-col text-center sm:my-10 md:mt-0 sm:ml-4 md:ml-20 md:mr-0 sm:mr-4 text-black dark:text-gray-100">
+            <h2 className="text-2xl text-black dark:text-gray-100 font-garamond underline">Events for this month</h2>
             {renderSelectedMonthEvents()}
-            <h2 className="text-xl mt-4 mb-2 underline text-black font-garamond">
+            <h2 className="text-xl mt-4 mb-2 underline text-black dark:text-gray-100 font-garamond">
               Events for {selectedDate ? format((selectedDate), "dd-MM-yyyy") : ""}
             </h2>
             {renderSelectedDateEvents()}

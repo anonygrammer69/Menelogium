@@ -1,5 +1,4 @@
 module.exports = {
-	// Ensure Tailwind uses class strategy for dark mode
 	darkMode: 'class',
 	content: [
 		"./index.html",
@@ -13,5 +12,4 @@ module.exports = {
 		},
 	},
 	plugins: [],
-	darkMode: 'class',
 };
