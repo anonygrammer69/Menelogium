@@ -73,6 +73,9 @@ function App() {
         Logout
       </button>
       <h1 className="flex text-base justify-center ml-16 mt-12 sm:mr-12 md:ml-16 md:mt-12 font-garamond text-gray-800 dark:text-gray-100">Welcome to your Calendar</h1>
+      <div className="text-center p-4 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600">
+        Dark mode test: {theme === 'dark' ? 'Dark' : 'Light'} mode active
+      </div>
       <div className="relative w-full h-28">
         <a>
           <img src={CALENDAR} className="absolute h-20 justify-center left-1/2 transform -translate-x-1/2 my-6"/>
