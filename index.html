@@ -10,10 +10,14 @@
           if (storedTheme === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
+            // Default to light mode and ensure dark class is removed
             document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
           }
         } catch (e) {
-          // no-op
+          // Default to light mode on error
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
         }
       })();
     </script>
