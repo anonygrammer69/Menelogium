@@ -18,6 +18,7 @@
   z-index: -1;
   background: linear-gradient(#c4aeae, #1d4380);
   background-size: cover;
+  transition: background 300ms ease;
 }
 
 .dark #root::after {
