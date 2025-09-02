@@ -51,18 +51,18 @@ function App() {
   return (
     <div className="w-full min-h-screen bg-transparent text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <button
-        className="absolute top-4 left-2 z-50 inline-flex items-center gap-2 select-none"
+        className="absolute top-2 left-2 z-50 inline-flex items-center gap-2 select-none"
         onClick={toggleTheme}
         role="switch"
         aria-checked={theme === 'dark'}
         aria-label="Toggle dark mode"
       >
-        <span className="text-xs opacity-80">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+        <span className="text-xs opacity-80">{theme === 'dark' ? 'Light ☀️' : 'Dark 🌙'}</span>
         <span
           className={`relative h-6 w-11 rounded-full transition-colors duration-300 ${theme === 'dark' ? 'bg-blue-500' : 'bg-gray-300'}`}
         >
           <span
-            className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300 will-change-transform ${theme === 'dark' ? 'translate-x-5' : 'translate-x-0'}`}
+            className={`absolute top-4 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-300 will-change-transform ${theme === 'dark' ? 'translate-x-5' : 'translate-x-0'}`}
           />
         </span>
       </button>

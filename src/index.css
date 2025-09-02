@@ -33,7 +33,4 @@ h1 {
   color: #e5e7eb;
 }
 
-/* Ensure any hard-coded text-black becomes readable in dark mode */
-.dark .text-black { color: #e5e7eb !important; }
-.dark .bg-white { background-color: #0f172a !important; }
-.dark .border-black { border-color: #334155 !important; }
+/* Dark mode overrides removed to allow Tailwind dark: variants to work properly */
