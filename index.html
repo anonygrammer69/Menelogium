@@ -4,6 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <script>
+      (function() {
+        try {
+          var storedTheme = localStorage.getItem('theme');
+          var userThemeSet = localStorage.getItem('userThemeSet') === 'true';
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if ((userThemeSet && storedTheme === 'dark') || (!userThemeSet && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          // no-op
+        }
+      })();
+    </script>
     <title>Menelogium</title>
     <meta property="og:title" content="Menelogium - Modern Personal Scheduler">
     <meta property="og:description" content="Menelogium is a highly sophisticated, handcrafted, modern solution tailor-made for you to manage and keep track of all the events of your life with ease.">
