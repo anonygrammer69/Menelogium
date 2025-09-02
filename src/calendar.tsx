@@ -382,13 +382,13 @@ return (
         {showSidebar && (
           <div
             className={`
-            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-white to-gray-500 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
+            fixed top-0 left-0 z-50 w-64 py-2 px-4 h-full bg-gradient-to-b from-blue-500 to-blue-800 border-2 border-black rounded-lg p-4 gap-4 flex flex-col shadow-lg
             transition duration-300 ease-in-out
             ${showSidebar ? "translate-x-0" : "translate-x-4"}
            `}
             style={{ willChange: "transform" }}
           >
-            <h2 className="text-xl font-semibold text-black mt-4 mb-4">Menu</h2>
+            <h2 className="text-xl font-semibold text-black dark:text-black mt-4 mb-4">Menu</h2>
            <button
               className="py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600 transition hover:cursor-pointer"
               onClick={() => {
