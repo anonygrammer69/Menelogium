@@ -197,7 +197,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
       aria-label="Previous month">
         <img src={leftArrow} alt="Previous" className="relative top-1 w-6.5 h-6.5 p-0.5 hover:bg-gray-300 hover:border-2 rounded"/>
       </button>
-      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:bg-white hover:border-2 rounded-xl dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
+      <select className="hover:cursor-pointer w-25 text-center mb-1 hover:bg-blue-400 hover:border-2 rounded-xl bg-blue-300 dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
         onChange={(e) => handleMonthChange(e.target.value)}
         value={format(currentMonth, "MMMM")}>
         {months.map((month) => (
@@ -206,7 +206,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
         </option>
         ))}
       </select>
-      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:bg-white hover:border-2 rounded-xl dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
+      <select className="hover:cursor-pointer w-30 text-center mb-1 hover:bg-blue-400 hover:border-2 rounded-xl bg-blue-300 dark:bg-slate-800 dark:text-gray-100 dark:hover:bg-slate-700 dark:border-slate-600"
         onChange={handleYearChange} 
         value={format(currentMonth, "yyyy")}>
         {years.map((year) => (
@@ -430,7 +430,7 @@ return (
             ${
               theme === 'dark'
                 ? 'bg-gradient-to-b from-blue-800 to-blue-950 border-slate-600'
-                : 'bg-gradient-to-b from-blue-200 to-blue-400 border-black'
+                : 'bg-gradient-to-b from-blue-400 to-blue-600 border-black'
             }
             ${showSidebar ? "translate-x-0" : "translate-x-4"}
            `}
