@@ -45,6 +45,11 @@ A minimal, elegant, AI-powered (soon™) calendar that automates your scheduling
 
   Slight updates to the overall app's UI have been done, to improve readability, navigation and overall appearence.
 
+## ✨ Alpha-V1.1 - What's new
+
+- 🌓 **Dark Mode** 🌗
+  
+  A much anticipated feature, finally became reality. Take adnvantage of the all new dark mode switch, to seamlessly switch between a dark appearence, and a light appearence, for readabilty, ease of viewing, and   an elevated, and personalized experience.
   
 ---
 
