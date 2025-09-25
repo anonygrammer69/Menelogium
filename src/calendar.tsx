@@ -274,7 +274,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
         <div className={`grid grid-cols-7 border-2 rounded-lg text-lg mb-2 ${
           theme === 'dark'
             ? 'border-slate-600 bg-slate-800 text-gray-100'
-            : 'border-black bg-slate-300 text-black'
+            : 'border-black bg-blue-200 text-black'
         }`}>
           {weekdays.map((day) => (
             <div key={day} className="relative text-center font-semibold py-2">{day}</div>
