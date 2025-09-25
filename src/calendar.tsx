@@ -259,8 +259,8 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
                   ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-xl hover:shadow-red-700"
                   : "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700"
                 : theme === 'dark'
-                  ? "bg-slate-700 text-gray-100 hover:bg-slate-600 hover:shadow-xl hover:shadow-blue-700"
-                  : "bg-slate-300 text-black hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-700"
+                  ? "bg-slate-700 text-gray-100 hover:bg-slate-600 hover:shadow-xl hover:shadow-purple-800"
+                  : "bg-blue-300 text-black hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-700"
           }`}
           onClick={() => handleDateClick(currentDay)}
         >
