@@ -189,7 +189,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
     <div className={`flex-row border-2 rounded-lg text-lg font-semibold ${
       theme === 'dark'
         ? 'bg-gradient-to-b from-slate-800 to-slate-700 text-gray-100 border-slate-600'
-        : 'bg-gradient-to-b from-white to-blue-300 text-black border-black'
+        : 'bg-gradient-to-b from-white to-blue-200 text-black border-black'
     }`}>
       <button
       className="hover:cursor-pointer"
@@ -232,7 +232,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
   const renderDays = () => {
     const days = [];
     days.push(
-    <div className={`flex flex-row justify-evenly text-lg ${
+    <div className={`flex flex-row bg-blue-200 justify-evenly text-lg ${
       theme === 'dark' ? 'text-gray-200' : 'text-black'
     }`}>
       {weekdays.map((day) => (
