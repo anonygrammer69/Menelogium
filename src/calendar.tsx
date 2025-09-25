@@ -189,7 +189,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
     <div className={`flex-row border-2 rounded-lg text-lg font-semibold ${
       theme === 'dark'
         ? 'bg-gradient-to-b from-slate-800 to-slate-700 text-gray-100 border-slate-600'
-        : 'bg-gradient-to-b from-white to-slate-300 text-black border-black'
+        : 'bg-gradient-to-b from-white to-blue-300 text-black border-black'
     }`}>
       <button
       className="hover:cursor-pointer"
@@ -260,7 +260,7 @@ const Calendar: React.FC<CalendarProps> = ({ theme }) => {
                   : "bg-red-500 text-white hover:bg-red-600 hover:shadow-xl hover:shadow-red-700"
                 : theme === 'dark'
                   ? "bg-slate-700 text-gray-100 hover:bg-slate-600 hover:shadow-xl hover:shadow-purple-800"
-                  : "bg-blue-300 text-black hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-700"
+                  : "bg-blue-200 text-black hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-700"
           }`}
           onClick={() => handleDateClick(currentDay)}
         >

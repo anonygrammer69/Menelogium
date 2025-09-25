@@ -122,7 +122,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chat Window */}
       <div
-        className={`absolute top-48 right-2 w-80 h-56 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 chatbot-menu ${
+        className={`absolute top-48 w-80 h-56 bg-white rounded-xl shadow-2xl transition-all duration-300 ease-in-out z-50 chatbot-menu ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
@@ -183,7 +183,7 @@ const Chatbot: React.FC = () => {
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message here..."
-              className="flex-1 border-2 border-gray-300 rounded-lg px-4 py-3 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-garamond placeholder-gray-500"
+              className="flex-1 border-2 border-gray-300 rounded-lg px-4 py-3 text-black text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white font-garamond placeholder-gray-500"
               rows={1}
               disabled={isLoading}
             />
